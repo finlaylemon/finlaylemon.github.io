@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Michroma&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Finlay Lemon | Mechatronics and Robotics Engineering">
+<meta property="og:description" content="Mechatronics and Robotics Engineering student at Queen's University. Space systems, rovers, and mechanical design.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 16'%3E%3Cpath d='M0 0h12l-4 16H0z' fill='%231A4C99'/%3E%3Cpath d='M12 0h10l-4 16H8z' fill='%23FABD0F'/%3E%3Cpath d='M22 0h8v16H18z' fill='%23B90E31'/%3E%3C/svg%3E">
+<title>Finlay Lemon | Mechatronics and Robotics Engineering</title>
+<meta name="description" content="Finlay Lemon, Mechatronics and Robotics Engineering student at Queen's University, seeking a 12 to 16 month internship beginning May to September 2027.">
+<style>
+  :root {
+    --bg: #0A0A0A;
+    --panel: #151515;
+    --ink: #FFFFFF;
+    --ink-2: #A6A6A6;
+    --line: #333333;
+    --line-soft: #242424;
+    --grey: #8C8C8C;
+    --q-blue: #1A4C99;
+    --q-gold: #FABD0F;
+    --q-red: #B90E31;
+    --tri: linear-gradient(120deg, var(--q-blue) 0 33.34%, var(--q-gold) 33.34% 66.67%, var(--q-red) 66.67% 100%);
+    --model-fill: #E6E6E6;
+    --model-edge: #0A0A0A;
+    --display: "Eurostile", "Eurostile Extended", "Michroma", "Helvetica Neue", Arial, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--mono);
+    font-size: 15px;
+    line-height: 1.65;
+    border-top: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration-color: var(--grey); text-underline-offset: 3px; }
+  a:hover { color: var(--q-gold); text-decoration-color: var(--q-gold); }
+  :focus-visible { outline: 2px solid var(--q-gold); outline-offset: 2px; }
+  [hidden] { display: none !important; }
+
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+  header { padding: 56px 0 44px; }
+  h1 { font-family: var(--display); font-size: clamp(1.7rem, 5.5vw, 2.6rem); font-weight: 700; font-style: italic; font-synthesis: weight style; letter-spacing: 0.01em; line-height: 1.15; margin: 0 0 10px; }
+  .intro { color: var(--ink-2); margin: 0 0 6px; max-width: 58ch; }
+  .seeking { margin: 0 0 22px; display: flex; align-items: center; gap: 10px; }
+  .seeking::before { content: ""; width: 24px; height: 12px; background: var(--tri); flex: none; }
+  .links { display: flex; flex-wrap: wrap; gap: 6px 24px; font-size: 1rem; margin: 0; padding: 0; list-style: none; }
+
+  section { border-top: 1px solid var(--line); padding: 36px 0 40px; }
+  h2 { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--grey); margin: 0 0 22px; }
+  h3 { font-family: var(--display); font-size: 0.98rem; font-weight: 700; font-style: italic; font-synthesis: weight style; margin: 0; letter-spacing: 0.01em; line-height: 1.4; }
+  h2 .n { color: var(--q-gold); margin-right: 6px; }
+  p { margin: 0 0 10px; }
+
+  .item + .item { margin-top: 28px; }
+  .item-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+  .when { color: var(--ink-2); font-size: 0.95rem; white-space: nowrap; }
+  .sub { color: var(--ink-2); font-size: 0.97rem; margin: 2px 0 10px; }
+  ul.points { margin: 0; padding-left: 1.1em; }
+  ul.points li { margin-bottom: 6px; }
+  ul.points li::marker { color: var(--grey); }
+  section { border-top-color: var(--line); }
+
+  .viewer { margin: 18px 0 18px; background: radial-gradient(130% 100% at 12% 0%, #22385E 0%, #131927 45%, #0A0A0A 100%); border: 1px solid var(--line-soft); }
+  .viewer canvas { display: block; width: 100%; aspect-ratio: 16 / 10; cursor: grab; touch-action: pan-y; }
+  .viewer canvas:active { cursor: grabbing; }
+  .viewer p { margin: 0; padding: 7px 12px; border-top: 1px solid var(--line-soft); background: rgba(10,10,10,0.5); font-size: 0.85rem; color: var(--ink-2); }
+
+  .shot {
+    margin: 18px 0 18px; padding: clamp(10px, 2.2vw, 18px); border-radius: 10px; overflow: hidden;
+    background: radial-gradient(130% 100% at 12% 0%, #22385E 0%, #131927 45%, #0A0A0A 100%);
+    border: 1px solid var(--line-soft);
+  }
+  .shot img { display: block; width: 100%; height: auto; border-radius: 6px; box-shadow: 0 10px 30px rgba(0,0,0,0.55); }
+  .shot figcaption { margin: 12px 2px 0; font-size: 0.85rem; color: var(--ink-2); }
+  .btn-doc {
+    display: inline-flex; align-items: center; gap: 10px; margin-top: 8px; padding: 10px 16px;
+    border: 1px solid var(--grey); border-radius: 6px; text-decoration: none; font-size: 0.95rem;
+  }
+  .btn-doc:hover { border-color: var(--q-gold); color: var(--q-gold); }
+  .btn-doc .ext { font-size: 0.78rem; color: var(--grey); letter-spacing: 0.08em; }
+  .btn-doc:hover .ext { color: inherit; }
+  .project + .project { margin-top: 48px; padding-top: 40px; border-top: 1px solid var(--line); }
+  /* Résumé page */
+  .page-nav { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 28px 0 0; font-size: 1rem; }
+  .resume-head { padding: 36px 0 32px; }
+  .resume-head h1 { font-size: clamp(1.4rem, 4.5vw, 2rem); margin-bottom: 6px; }
+  .resume-head p { color: var(--ink-2); margin: 0; }
+  dl.skills { display: grid; grid-template-columns: 130px 1fr; gap: 8px 18px; margin: 0; }
+  dl.skills dt { color: var(--ink-2); }
+  dl.skills dd { margin: 0; }
+  @media (max-width: 560px) {
+    dl.skills { grid-template-columns: 1fr; gap: 0; }
+    dl.skills dd { margin-bottom: 10px; }
+  }
+
+  #resume-view main { background: var(--bg); box-shadow: 0 0 0 100vmax var(--bg); clip-path: inset(0 -100vmax); }
+  body::before { content: ""; display: block; height: 18px; background: var(--tri); }
+  footer::before { content: ""; display: block; height: 6px; background: var(--tri); margin: 0 0 24px; }
+  .viewer { border-radius: 10px; overflow: hidden; }
+  .viewer::after { content: ""; display: block; height: 6px; background: var(--tri); }
+  footer { border-top: 0; padding: 8px 0 56px; color: var(--ink-2); font-size: 0.95rem; }
+  .specs { width: 100%; border-collapse: collapse; margin: 16px 0 14px; font-size: 0.9rem; }
+  .specs th, .specs td { text-align: left; padding: 7px 10px 7px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .specs thead th { color: var(--grey); font-weight: 500; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .specs tbody th { color: var(--ink-2); font-weight: 400; }
+  .btn-row { display: flex; flex-wrap: wrap; gap: 10px; }
+
+  /* Gallery page */
+  .gallery-head { padding: 36px 0 28px; }
+  .gallery-head h1 { font-size: clamp(1.4rem, 4.5vw, 2rem); margin-bottom: 8px; }
+  .gallery-head p { color: var(--ink-2); margin: 0; max-width: 60ch; }
+  .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .gallery figure { margin: 0; padding: 12px; border-radius: 10px; border: 1px solid var(--line-soft);
+    background: radial-gradient(130% 100% at 12% 0%, #22385E 0%, #131927 45%, #0A0A0A 100%);
+    display: flex; flex-direction: column; }
+  .gallery figure.wide { grid-column: 1 / -1; }
+  .gallery .frame { flex: 1; display: grid; place-items: center; }
+  .gallery img { display: block; max-width: 100%; height: auto; border-radius: 6px; box-shadow: 0 8px 24px rgba(0,0,0,0.5); }
+  .gallery figure img { width: 100%; }
+  .gallery figure.portrait img { width: auto; height: 260px; }
+  [tabindex="-1"]:focus { outline: none; }
+  .gallery figcaption { margin-top: 10px; font-size: 0.85rem; color: var(--ink-2); }
+  @media (max-width: 560px) { .gallery { grid-template-columns: 1fr; } .gallery figure.portrait img { height: 300px; } }
+  .shot video { display: block; width: 100%; height: auto; border-radius: 6px; box-shadow: 0 10px 30px rgba(0,0,0,0.55); background: #000; }
+  #home-view > header.wrap { padding-top: 44px; padding-bottom: 32px; }
+  .jump { margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 18px; font-size: 0.92rem; }
+  .jump-label { color: var(--grey); font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; }
+  .jump ul { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 0; padding: 0; list-style: none; }
+  .jump a { color: var(--ink-2); }
+  .jump a:hover { color: var(--q-gold); }
+  html { scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 16px); }
+  @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+  .btn-doc.is-soon { border-style: dashed; color: var(--ink-2); cursor: default; }
+  .btn-doc.is-soon:hover { border-color: var(--grey); color: var(--ink-2); }
+  .btn-doc.is-soon .ext { text-transform: uppercase; }
+</style>
+</head>
+<body>
+
+<!-- ================= HOME ================= -->
+<div id="home-view">
+  <header class="wrap">
+    <h1>Finlay Lemon</h1>
+    <p class="intro">Mechatronics and Robotics Engineering, Queen's University, Kingston. Space systems, rovers, and mechanical design.</p>
+    <p class="seeking">Seeking a 12–16 month internship beginning May–September 2027.</p>
+    <ul class="links">
+      <li><a href="#resume">Résumé</a></li>
+      <li><a href="assets/docs/Finlay-Lemon-Resume.pdf" download>Download PDF</a></li>
+      <li><a href="https://www.linkedin.com/in/finlay-lemon" target="_blank" rel="noopener">LinkedIn</a></li>
+    </ul>
+    <nav class="jump" aria-label="Jump to a project">
+      <span class="jump-label">Jump to</span>
+      <ul>
+        <li><a href="#lunar-logistics-rover">Lunar Logistics Rover</a></li>
+        <li><a href="#mars-sample-retrieval-rover">Mars Sample Retrieval Rover</a></li>
+        <li><a href="#wind-tunnels-project">Desktop Wind Tunnels</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section aria-labelledby="featured-h" id="lunar-logistics-rover">
+      <h2 id="featured-h"><span class="n">01</span>Featured project</h2>
+      <div class="item-head"><h3>Lunar Logistics Rover</h3><span class="when">June 2026 – present</span></div>
+      <p class="sub">SolidWorks, SolidWorks Simulation</p>
+      <div class="viewer">
+        <canvas id="model-canvas" role="img" aria-label="3D model of the rover. Drag to rotate."></canvas>
+        <p>Lunar Logistics Rover, SolidWorks model. Drag to rotate.</p>
+      </div>
+      <p>A first-pass design response to the Canadian Space Agency's Lunar Utility Vehicle project. I defined the rover's electrical, mechanical, and thermal subsystems, and developed a new wheel concept using Bekker terramechanics, validated with FEA. The design rationale and trade studies are written up in a standalone technical report.</p>
+      <div class="btn-row"><span class="btn-doc is-soon" aria-disabled="true">Technical report <span class="ext">Coming soon</span></span></div>
+    </section>
+
+    <section aria-labelledby="projects-h">
+      <h2 id="projects-h"><span class="n">02</span>Projects</h2>
+      <article class="project" id="mars-sample-retrieval-rover">
+        <div class="item-head"><h3>Mars Sample Retrieval Rover</h3><span class="when">Jan – Apr 2026</span></div>
+        <p class="sub">Course design project, team of three · SolidWorks, ROS 2, Nav2, Gazebo, RViz, Python</p>
+        <figure class="shot">
+          <img src="assets/img/msrr-cad.jpg" width="1170" height="706" loading="lazy"
+               alt="CAD render of the rover with labelled parts: CSA SPRP chassis, deployed solar panels, tube bank holding 6 of 10 tubes, arm with yaw cuff, claw unit gripping a tube, camera unit, suspension bogie and wheels.">
+          <figcaption>Rover overview with labelled components, from the design report.</figcaption>
+        </figure>
+        <p>A rover concept for collecting the sample tubes cached at Mars's Three Forks Depot, built on the CSA Small Planetary Rover Platform (SPRP). I led the rover's design and did all of the CAD, including the sample retrieval system: a robotic arm with a claw and camera, a ten-tube sample bank, and deployable solar panels.</p>
+        <p>In a second phase, we implemented the software on provided rover hardware: ROS 2 on a Raspberry Pi 4, with an Arduino Uno driving the motors, using SLAM with LiDAR to map a room and navigate autonomously between points. The design report also covers surface operations, fault handling, and COSPAR planetary protection.</p>
+        <a class="btn-doc" href="assets/docs/MSR-Rover-Design-Report.pdf" target="_blank" rel="noopener">Read the design report <span class="ext">PDF</span></a>
+      </article>
+
+      <article class="project" id="wind-tunnels-project">
+        <div class="item-head"><h3>Desktop Wind Tunnels</h3><span class="when">Oct 2025 – 2026</span></div>
+        <p class="sub">Independent project · SolidWorks, FDM 3D printing, COTS integration</p>
+        <figure class="shot">
+          <img src="assets/img/wind-tunnel-cad.jpg" width="1111" height="692" loading="lazy" alt="Labelled CAD model of the open-return wind tunnel: intake mesh, honeycomb, contraction, test box, diffuser and fan module.">
+          <figcaption>Open-return tunnel, labelled CAD.</figcaption>
+        </figure>
+        <p>Two wind tunnels designed to be cheap to make and able to show airflow. The first is an open-return tunnel, built from 3D-printed and off-the-shelf parts as a low-cost alternative to the large commercial units used at Queen's. It is modular, so it prints in about 20 hours with household filament and broken parts can be swapped out. I designed a ridge-and-collar joint for it: printed collars snap around triangular ridges on each section and pull them tight, sealing the joint with a single bolt. It produced visible streamlines over a test airfoil.</p>
+        <figure class="shot">
+          <video class="flow-clip" poster="assets/img/flow-poster.jpg" width="800" height="404" autoplay muted loop playsinline preload="metadata" aria-label="Smoke streamlines flowing over the test airfoil in the open-return tunnel"><source src="assets/video/flow.webm" type="video/webm"><source src="assets/video/flow.mp4" type="video/mp4"></video>
+          <figcaption>Smoke streamlines over the test airfoil, in the open-return tunnel.</figcaption>
+        </figure>
+        <p>The second is a closed-loop design twice the size, which recycles the exhaust air back to the fan for faster, more efficient flow. It was planned as a platform for comparison testing against an AGARD-B benchmark model, and was taken through CAD but not built.</p>
+        <table class="specs">
+          <thead><tr><th scope="col"></th><th scope="col">Open return</th><th scope="col">Closed loop</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Length</th><td>762 mm</td><td>1540 mm</td></tr>
+            <tr><th scope="row">Contraction ratio</th><td>2.76</td><td>5.29</td></tr>
+            <tr><th scope="row">Airspeed</th><td>Low, unmeasured</td><td>20 m/s (theoretical)</td></tr>
+            <tr><th scope="row">Drive</th><td>9 V micromotor</td><td>120 V axial fan</td></tr>
+            <tr><th scope="row">Honeycomb</th><td>Square, with screen</td><td>Hexagonal, with screen</td></tr>
+            <tr><th scope="row">Status</th><td>Built, flow visualised</td><td>Designed, not built</td></tr>
+          </tbody>
+        </table>
+        <div class="btn-row"><a class="btn-doc" href="#wind-tunnels">View images <span class="ext">9</span></a></div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="wrap">Finlay Lemon · Kingston, Ontario · <a href="https://www.linkedin.com/in/finlay-lemon" target="_blank" rel="noopener">LinkedIn</a></footer>
+</div>
+
+<!-- ================= WIND TUNNEL IMAGES ================= -->
+<div id="wind-tunnels-view" hidden>
+  <nav class="wrap page-nav" aria-label="Wind tunnel images">
+    <a href="#wind-tunnels-project">&larr; Back to home</a>
+  </nav>
+
+  <main class="wrap">
+    <div class="gallery-head">
+      <h1 id="wind-tunnels-title" tabindex="-1">Desktop Wind Tunnels</h1>
+      <p>CAD and photos from both tunnels. The open-return tunnel was built and tested; the closed-loop tunnel was designed in CAD.</p>
+    </div>
+
+    <section aria-labelledby="wt1-h">
+      <h2 id="wt1-h"><span class="n">01</span>Open-return tunnel</h2>
+      <div class="gallery">
+        <figure class="wide"><div class="frame"><img src="assets/img/wind-tunnel-cad.jpg" width="1111" height="692" alt="Labelled CAD model of the open-return wind tunnel" loading="lazy"></div><figcaption>Labelled CAD: intake mesh, honeycomb, contraction, test box, diffuser and fan module.</figcaption></figure>
+        <figure><div class="frame"><img src="assets/img/wt-flow.jpg" width="285" height="204" alt="Smoke streamlines flowing over an airfoil in the test section" loading="lazy"></div><figcaption>Smoke streamlines over the test airfoil, near the point where turbulence forms.</figcaption></figure>
+        <figure class="portrait"><div class="frame"><img src="assets/img/wt-assembled.jpg" width="241" height="306" alt="Assembled white 3D-printed wind tunnel on a wooden floor next to a banana" loading="lazy"></div><figcaption>The assembled tunnel, with a banana for scale.</figcaption></figure>
+        <figure class="wide"><div class="frame"><img src="assets/img/wt-flow-sequence.jpg" width="757" height="133" alt="Six frames of smoke flow over the airfoil" loading="lazy"></div><figcaption>Flow over the airfoil across a series of frames.</figcaption></figure>
+        <figure><div class="frame"><img src="assets/img/wt-screens.jpg" width="383" height="201" alt="Two printed flow-conditioning inserts: a fine screen and a square honeycomb" loading="lazy"></div><figcaption>Printed anti-turbulence screen and square honeycomb.</figcaption></figure>
+        <figure class="portrait"><div class="frame"><img src="assets/img/wt-interior.jpg" width="169" height="204" alt="View down the inside of the test section towards the fan" loading="lazy"></div><figcaption>Looking down the test section towards the fan.</figcaption></figure>
+      </div>
+    </section>
+
+    <section aria-labelledby="wt2-h">
+      <h2 id="wt2-h"><span class="n">02</span>Closed-loop tunnel</h2>
+      <div class="gallery">
+        <figure class="wide"><div class="frame"><img src="assets/img/wt2-cad.jpg" width="443" height="318" alt="CAD of the large closed-loop tunnel beside the smaller open-return tunnel" loading="lazy"></div><figcaption>Closed-loop CAD, with the first tunnel in front for scale.</figcaption></figure>
+        <figure><div class="frame"><img src="assets/img/wt2-cutaway.jpg" width="438" height="330" alt="Cutaway CAD of the closed-loop tunnel" loading="lazy"></div><figcaption>Cutaway showing the turning vanes in each corner.</figcaption></figure>
+        <figure class="portrait"><div class="frame"><img src="assets/img/wt2-diffuser.jpg" width="151" height="237" alt="A large printed diffuser section next to the first tunnel" loading="lazy"></div><figcaption>A printed diffuser section beside the first tunnel.</figcaption></figure>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap"><a href="#wind-tunnels-project">&larr; Back to home</a></footer>
+</div>
+
+<!-- ================= RÉSUMÉ ================= -->
+<div id="resume-view" hidden>
+  <nav class="wrap page-nav" aria-label="Résumé page">
+    <a href="#">← Back to home</a>
+    <a href="assets/docs/Finlay-Lemon-Resume.pdf" download>Download PDF</a>
+  </nav>
+
+  <main class="wrap">
+    <div class="resume-head">
+      <h1 id="resume-title" tabindex="-1">Finlay Lemon — Résumé</h1>
+      <p><a href="https://www.linkedin.com/in/finlay-lemon" target="_blank" rel="noopener">linkedin.com/in/finlay-lemon</a></p>
+      <p>Seeking a 12–16 month internship beginning May–September 2027.</p>
+    </div>
+
+    <section aria-labelledby="edu-h">
+      <h2 id="edu-h">Education</h2>
+      <div class="item-head"><h3>Queen's University</h3><span class="when">Sep 2024 – Apr 2028</span></div>
+      <p class="sub">BASc, Mechatronics and Robotics Engineering, Kingston, Ontario</p>
+    </section>
+
+    <section aria-labelledby="exp-h">
+      <h2 id="exp-h">Experience</h2>
+      <div class="item">
+        <div class="item-head"><h3>Research Lead, Queen's Rocket Engineering Team</h3><span class="when">Sep 2025 – Apr 2026</span></div>
+        <ul class="points">
+          <li>Co-led a 15-person team to produce a full CAN-RGX research report in a two-month window.</li>
+          <li>Investigated high surface-area solids for convection-independent heat exchangers.</li>
+        </ul>
+      </div>
+      <div class="item">
+        <div class="item-head"><h3>Order-handling Specialist, Coca-Cola Canada Bottling</h3><span class="when">May – Sep 2025</span></div>
+        <ul class="points">
+          <li>Assembled and routed over $2.3 million of product for customers across Eastern Ontario.</li>
+          <li>Operated powered material-handling equipment in a fast-paced environment with no recorded incidents.</li>
+        </ul>
+      </div>
+      <div class="item">
+        <div class="item-head"><h3>Team Member, Queen's Rocket Engineering Team</h3><span class="when">2024 – present</span></div>
+        <ul class="points">
+          <li>Helping design a hybrid-propulsion supersonic sounding rocket.</li>
+          <li>CAD design and analysis of the aerostructure and auxiliary ground equipment.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="proj-h">
+      <h2 id="proj-h">Projects</h2>
+      <div class="item">
+        <div class="item-head"><h3>Lunar Logistics Rover</h3><span class="when">June 2026 – present</span></div>
+        <p class="sub">SolidWorks, SolidWorks Simulation</p>
+        <ul class="points">
+          <li>Developing a first-pass design solution to the Canadian Space Agency's Lunar Utility Vehicle (LUV) project.</li>
+          <li>Defined electrical, mechanical, and thermal subsystems, maintaining interface control across a rolling development cycle.</li>
+          <li>Applied Bekker terramechanics to develop a new wheel concept (0.45 m wide, 1.2 m diameter) and validated feasibility with FEA, raising the flexure factor of safety from below 1 to 1.62 without significant mass increase.</li>
+          <li>Documented the design rationale and trade studies in a standalone technical report.</li>
+        </ul>
+      </div>
+      <div class="item">
+        <div class="item-head"><h3>Room-mapping Rover</h3><span class="when">Jan – Apr 2026</span></div>
+        <p class="sub">ROS, RViz, Python, SolidWorks</p>
+        <ul class="points">
+          <li>Designed, in a team of three, an autonomous rover built on the Lynxmotion 4WD platform.</li>
+          <li>Integrated ROS with SLAM to enable LiDAR-based mapping and autonomous point-to-point navigation.</li>
+        </ul>
+      </div>
+      <div class="item">
+        <div class="item-head"><h3>Desktop Wind Tunnel</h3><span class="when">Oct – Nov 2025</span></div>
+        <p class="sub">SolidWorks, FDM 3D printing, COTS integration</p>
+        <ul class="points">
+          <li>Prototyped a working wind tunnel with visible streamlines from 3D-printed and off-the-shelf parts, as a low-cost alternative to the large commercial units used at Queen's.</li>
+          <li>Used a modular design, allowing manufacture in about 20 hours with household filament.</li>
+        </ul>
+      </div>
+      <div class="item">
+        <div class="item-head"><h3>CAN-RGX Proposal</h3><span class="when">Sep – Dec 2025</span></div>
+        <p class="sub">Word, Teams, Zotero</p>
+        <ul class="points">
+          <li>Co-authored a CAN-RGX research project proposal for the 2025 cycle.</li>
+          <li>Built the proposal around heat exchange using TPMS high surface-area volumes in microgravity, targeting heat exchangers that do not rely on convection.</li>
+          <li>Delivered the complete submission package on schedule within a two-month deadline, coordinating 15 people, sourcing, and internal review cycles.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="skills-h">
+      <h2 id="skills-h">Technical skills</h2>
+      <dl class="skills">
+        <dt>CAD</dt><dd>SolidWorks (4 years), Siemens NX (6 months)</dd>
+        <dt>Software</dt><dd>ROS, RViz, Python, C++, MATLAB / Simulink, VHDL</dd>
+        <dt>Analysis</dt><dd>SolidWorks Simulation (FEA), Excel</dd>
+        <dt>Certification</dt><dd>Amateur Radio, ISED Canada Basic Qualification</dd>
+      </dl>
+    </section>
+  </main>
+
+  <footer class="wrap"><a href="#">← Back to home</a> · <a href="assets/docs/Finlay-Lemon-Resume.pdf" download>Download PDF</a></footer>
+</div>
+
+<script>
+// Simple routing: "#resume" and "#wind-tunnels" show their pages; anything else shows home.
+(function () {
+  var views = {
+    '#resume': { el: document.getElementById('resume-view'), title: 'Résumé | Finlay Lemon', focus: 'resume-title' },
+    '#wind-tunnels': { el: document.getElementById('wind-tunnels-view'), title: 'Wind tunnel images | Finlay Lemon', focus: 'wind-tunnels-title' }
+  };
+  var home = document.getElementById('home-view');
+  function route(initial) {
+    var v = views[location.hash];
+    home.hidden = !!v;
+    Object.keys(views).forEach(function (k) { views[k].el.hidden = views[k] !== v; });
+    document.title = v ? v.title : 'Finlay Lemon | Mechatronics and Robotics Engineering';
+    if (initial) return;
+    if (v) { window.scrollTo(0, 0); document.getElementById(v.focus).focus(); }
+    else {
+      var target = location.hash.length > 1 && document.getElementById(location.hash.slice(1));
+      if (target) target.scrollIntoView(); else window.scrollTo(0, 0);
+    }
+  }
+  window.addEventListener('hashchange', function () { route(false); });
+  route(true);
+})();
+</script>
+
+<script>
+// Respect reduced-motion: don't autoplay the flow clip, give controls instead.
+(function () {
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.querySelectorAll('video.flow-clip').forEach(function (v) {
+    v.removeAttribute('autoplay'); v.pause(); v.controls = true;
+  });
+})();
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+(function () {
+  var canvas = document.getElementById('model-canvas');
+  if (!canvas || !window.THREE) return;
+
+  var css = getComputedStyle(document.documentElement);
+  var ink = new THREE.Color(css.getPropertyValue('--model-edge').trim() || '#0A0A0A');
+
+  var renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+  var scene = new THREE.Scene();
+  var camera = new THREE.PerspectiveCamera(35, 1.6, 0.01, 1000);
+
+  scene.add(new THREE.HemisphereLight(0xffffff, 0x888888, 0.9));
+  var sun = new THREE.DirectionalLight(0xffffff, 0.6);
+  sun.position.set(3, 5, 4);
+  scene.add(sun);
+
+  var fill = new THREE.MeshStandardMaterial({
+    color: new THREE.Color(css.getPropertyValue('--model-fill').trim() || '#E6E6E6'), roughness: 0.9, metalness: 0,
+    flatShading: true, side: THREE.DoubleSide, polygonOffset: true, polygonOffsetFactor: 1, polygonOffsetUnits: 1
+  });
+  var edgeMat = new THREE.LineBasicMaterial({ color: ink });
+  var edgeCache = {};
+
+  new THREE.GLTFLoader().load('assets/models/llr.glb', function (gltf) {
+    var model = gltf.scene;
+    model.traverse(function (o) {
+      if (o.isMesh) {
+        o.material = fill;
+        var g = o.geometry;
+        if (!edgeCache[g.uuid]) edgeCache[g.uuid] = new THREE.EdgesGeometry(g, 35);
+        o.add(new THREE.LineSegments(edgeCache[g.uuid], edgeMat));
+      }
+    });
+
+    // Centre the model and frame the camera around it.
+    var pivot = new THREE.Group();
+    pivot.add(model);
+    scene.add(pivot);
+    var box = new THREE.Box3().setFromObject(model);
+    var size = box.getSize(new THREE.Vector3());
+    var centre = box.getCenter(new THREE.Vector3());
+    model.position.sub(centre);
+    var radius = size.length() / 2;
+    var grid = new THREE.GridHelper(Math.max(size.x, size.z) * 2.2, 22, 0x333333, 0x1f1f1f);
+    grid.position.y = -size.y / 2;
+    scene.add(grid);
+    var dist = radius / Math.sin(THREE.MathUtils.degToRad(camera.fov / 2)) * 0.85;
+    camera.position.set(dist * 0.75, dist * 0.4, dist * 0.6);
+    camera.near = dist / 100; camera.far = dist * 10;
+    camera.updateProjectionMatrix();
+  }, undefined, function (err) { console.error('Model failed to load', err); });
+
+  var controls = new THREE.OrbitControls(camera, canvas);
+  controls.enableZoom = false;
+  controls.enablePan = false;
+  controls.enableDamping = true;
+  controls.autoRotate = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  controls.autoRotateSpeed = 1.2;
+  controls.addEventListener('start', function () { controls.autoRotate = false; });
+
+  function resize() {
+    var w = canvas.clientWidth, h = canvas.clientHeight;
+    if (!w || !h) return;
+    if (canvas.width !== Math.round(w * renderer.getPixelRatio())) {
+      renderer.setSize(w, h, false);
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+    }
+  }
+
+  var visible = true;
+  new IntersectionObserver(function (e) { visible = e[0].isIntersecting; }).observe(canvas);
+
+  (function loop() {
+    requestAnimationFrame(loop);
+    if (!visible) return;
+    resize();
+    controls.update();
+    renderer.render(scene, camera);
+  })();
+})();
+</script>
+
+</body>
+</html>
