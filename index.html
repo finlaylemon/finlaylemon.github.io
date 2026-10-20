@@ -12,7 +12,7 @@
 <meta property="og:description" content="Mechatronics and Robotics Engineering student at Queen's University. Space systems, rovers, and mechanical design.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 16'%3E%3Cpath d='M0 0h12l-4 16H0z' fill='%231A4C99'/%3E%3Cpath d='M12 0h10l-4 16H8z' fill='%23FABD0F'/%3E%3Cpath d='M22 0h8v16H18z' fill='%23B90E31'/%3E%3C/svg%3E">
 <title>Finlay Lemon | Mechatronics and Robotics Engineering</title>
-<meta name="description" content="Finlay Lemon, Mechatronics and Robotics Engineering student at Queen's University, seeking a 12 to 16 month internship beginning May to September 2027.">
+<meta name="description" content="Finlay Lemon, Mechatronics and Robotics Engineering student at Queen's University, seeking a 12 to 16 month internship.">
 <style>
   :root {
     --bg: #0A0A0A;
@@ -120,6 +120,9 @@
   .specs thead th { color: var(--grey); font-weight: 500; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; }
   .specs tbody th { color: var(--ink-2); font-weight: 400; }
   .btn-row { display: flex; flex-wrap: wrap; gap: 10px; }
+  ul.skills-list { margin: 4px 0 16px; color: var(--ink-2); }
+  ul.skills-list li { margin-bottom: 9px; }
+  ul.skills-list .k { color: var(--ink); font-weight: 500; }
   .specs tbody th { width: 34%; }
   @media (max-width: 560px) { .specs tbody th { width: 40%; } }
   .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
@@ -158,7 +161,7 @@
   <header class="wrap">
     <h1>Finlay Lemon</h1>
     <p class="intro">Mechatronics and Robotics Engineering, Queen's University, Kingston. Space systems, rovers, and mechanical design.</p>
-    <p class="seeking">Seeking a 12–16 month internship beginning May–September 2027.</p>
+    <p class="seeking">Seeking a 12–16 month internship.</p>
     <ul class="links">
       <li><a href="#resume">Résumé</a></li>
       <li><a href="assets/docs/Finlay-Lemon-Resume.pdf" download>Download PDF</a></li>
@@ -183,8 +186,15 @@
         <canvas id="model-canvas" role="img" aria-label="3D model of the rover. Drag to rotate."></canvas>
         <p>Lunar Logistics Rover, SolidWorks model. Drag to rotate.</p>
       </div>
-      <p>A first-pass concept study for a Canadian lunar utility vehicle, answering the Canadian Space Agency's Lunar Utility Vehicle (LUV) program. The rover is sized for the lunar south pole: 3,500 kg of modular cargo, including two astronauts for sorties of up to 8 hours, with remote and autonomous waypoint modes for uncrewed transit. It folds its front axle to stow inside a 5.75 m lander fairing.</p>
-      <p>The report works through four studies that feed each other: a Bekker terramechanics analysis of driving on regolith, drive unit selection (motor and harmonic gearbox in each hub), a thermal design built on an MMRTG and a pumped fluid loop, and an FEA study of a new large-wheel concept. It also records where the design does not yet meet its requirements, such as the 20° slope, which needs a traction test to close.</p>
+      <p>An independent concept design for a crewed lunar south-pole utility rover, developed as a response to the Canadian Space Agency's Lunar Utility Vehicle (LUV) program. The rover is sized for 3,500 kg of payload including two crew, with remote and autonomous waypoint modes, and stows inside a 5.75 m lander fairing.</p>
+      <ul class="points skills-list">
+        <li><span class="k">Requirements and systems engineering.</span> Built the design around a decision register that traces requirements from CSA and NASA sources into design decisions, maintained interfaces between subsystems as the design changed, and tracked where the design does not yet comply.</li>
+        <li><span class="k">Terramechanics.</span> Applied the Bekker model with NASA regolith data to derive rolling resistance, traction limits on slopes, and the grouser height needed to climb them.</li>
+        <li><span class="k">Drivetrain sizing.</span> Converted the mobility results into wheel torque and speed requirements, then selected a frameless motor and 120:1 harmonic gearbox, checking continuous, peak and speed margins against catalogue limits.</li>
+        <li><span class="k">Thermal analysis.</span> Analysed cold and hot cases for a pumped fluid loop fed by MMRTG waste heat, including end-of-life RTG output, night survival and radiator sizing.</li>
+        <li><span class="k">FEA and design iteration.</span> Designed a new large-diameter wheel with titanium flexures, an aluminium spine and replaceable grousers, and iterated the flexure in SolidWorks Simulation from a failing first design to a factor of safety of 1.68 at the worst-case load.</li>
+        <li><span class="k">Technical writing.</span> Documented the analysis, trade-offs and open non-compliances in a 34-page technical report.</li>
+      </ul>
       <table class="specs">
         <caption class="visually-hidden">Lunar Logistics Rover key figures</caption>
         <tbody>
@@ -210,8 +220,12 @@
                alt="CAD render of the rover with labelled parts: CSA SPRP chassis, deployed solar panels, tube bank holding 6 of 10 tubes, arm with yaw cuff, claw unit gripping a tube, camera unit, suspension bogie and wheels.">
           <figcaption>Rover overview with labelled components, from the design report.</figcaption>
         </figure>
-        <p>A rover concept for collecting the sample tubes cached at Mars's Three Forks Depot, built on the CSA Small Planetary Rover Platform (SPRP). I led the rover's design and did all of the CAD, including the sample retrieval system: a robotic arm with a claw and camera, a ten-tube sample bank, and deployable solar panels.</p>
-        <p>In a second phase, we implemented the software on provided rover hardware: ROS 2 on a Raspberry Pi 4, with an Arduino Uno driving the motors, using SLAM with LiDAR to map a room and navigate autonomously between points. The design report also covers surface operations, fault handling, and COSPAR planetary protection.</p>
+        <p>A course design project, in a team of three, for a rover to collect the sample tubes cached at Mars's Three Forks Depot, built on the CSA Small Planetary Rover Platform (SPRP).</p>
+        <ul class="points skills-list">
+          <li><span class="k">Mechanism design and CAD.</span> Led the rover design and produced all of the CAD, including the sample retrieval system: a robotic arm with a claw and camera, a ten-tube sample bank, and deployable solar panels.</li>
+          <li><span class="k">Mission concept.</span> Worked through surface operations, fault handling and COSPAR planetary protection requirements as part of the design report.</li>
+          <li><span class="k">Robotics integration.</span> Worked on point-to-point navigation for the hardware phase: ROS 2 and Nav2 on a Raspberry Pi 4 with Arduino motor control, LiDAR SLAM for room mapping, and testing in Gazebo before running on the rover.</li>
+        </ul>
         <a class="btn-doc" href="assets/docs/MSR-Rover-Design-Report.pdf" target="_blank" rel="noopener">Read the design report <span class="ext">PDF</span></a>
       </article>
 
@@ -222,12 +236,17 @@
           <img src="assets/img/wind-tunnel-cad.jpg" width="1111" height="692" loading="lazy" alt="Labelled CAD model of the open-return wind tunnel: intake mesh, honeycomb, contraction, test box, diffuser and fan module.">
           <figcaption>Open-return tunnel, labelled CAD.</figcaption>
         </figure>
-        <p>Two wind tunnels designed to be cheap to make and able to show airflow. The first is an open-return tunnel, built from 3D-printed and off-the-shelf parts as a low-cost alternative to the large commercial units used at Queen's. It is modular, so it prints in about 20 hours with household filament and broken parts can be swapped out. I designed a ridge-and-collar joint for it: printed collars snap around triangular ridges on each section and pull them tight, sealing the joint with a single bolt. It produced visible streamlines over a test airfoil.</p>
+        <p>Two low-cost desktop wind tunnels, designed as an alternative to the large commercial units used at Queen's. The open-return tunnel was built and tested; the closed-loop tunnel was taken through full CAD.</p>
+        <ul class="points skills-list">
+          <li><span class="k">Design for additive manufacturing.</span> Split the open-return tunnel into modular sections that print in about 20 hours on household filament, so any damaged part can be reprinted and replaced on its own.</li>
+          <li><span class="k">Joint design.</span> Designed a ridge-and-collar joint: printed collars snap over triangular ridges on each section and pull them tight, sealing the joint with a single bolt.</li>
+          <li><span class="k">Flow conditioning and test.</span> Designed the contraction, honeycomb and screens, diffuser and fan module, and confirmed flow quality with smoke visualisation over a test airfoil.</li>
+        </ul>
         <figure class="shot">
           <video class="flow-clip" poster="assets/img/flow-poster.jpg" width="800" height="404" autoplay muted loop playsinline preload="metadata" aria-label="Smoke streamlines flowing over the test airfoil in the open-return tunnel"><source src="assets/video/flow.webm" type="video/webm"><source src="assets/video/flow.mp4" type="video/mp4"></video>
           <figcaption>Smoke streamlines over the test airfoil, in the open-return tunnel.</figcaption>
         </figure>
-        <p>The second is a closed-loop design twice the size, which recycles the exhaust air back to the fan for faster, more efficient flow. It was planned as a platform for comparison testing against an AGARD-B benchmark model, and was taken through CAD but not built.</p>
+        <p>I then scaled the design up to a closed-loop tunnel twice the length, with a 5.29 contraction ratio, hexagonal honeycomb and turning vanes in each corner, for a theoretical 20 m/s. It was planned as a platform for comparison testing against an AGARD-B benchmark model.</p>
         <table class="specs">
           <thead><tr><th scope="col"></th><th scope="col">Open return</th><th scope="col">Closed loop</th></tr></thead>
           <tbody>
@@ -295,7 +314,7 @@
     <div class="resume-head">
       <h1 id="resume-title" tabindex="-1">Finlay Lemon — Résumé</h1>
       <p><a href="https://www.linkedin.com/in/finlay-lemon" target="_blank" rel="noopener">linkedin.com/in/finlay-lemon</a></p>
-      <p>Seeking a 12–16 month internship beginning May–September 2027.</p>
+      <p>Seeking a 12–16 month internship.</p>
     </div>
 
     <section aria-labelledby="edu-h">
