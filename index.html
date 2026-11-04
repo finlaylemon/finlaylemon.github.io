@@ -12,7 +12,7 @@
 <meta property="og:description" content="Mechatronics and Robotics Engineering student at Queen's University. Space systems, rovers, and mechanical design.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 16'%3E%3Cpath d='M0 0h12l-4 16H0z' fill='%231A4C99'/%3E%3Cpath d='M12 0h10l-4 16H8z' fill='%23FABD0F'/%3E%3Cpath d='M22 0h8v16H18z' fill='%23B90E31'/%3E%3C/svg%3E">
 <title>Finlay Lemon | Mechatronics and Robotics Engineering</title>
-<meta name="description" content="Finlay Lemon, Mechatronics and Robotics Engineering student at Queen's University, seeking a 12 to 16 month internship.">
+<meta name="description" content="Finlay Lemon, Mechatronics and Robotics Engineering student at Queen's University, seeking a 12 to 16 month internship beginning May to September 2027.">
 <style>
   :root {
     --bg: #0A0A0A;
@@ -97,11 +97,11 @@
   .btn-doc:hover .ext { color: inherit; }
   .project + .project { margin-top: 48px; padding-top: 40px; border-top: 1px solid var(--line); }
   /* Résumé page */
-  .page-nav { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 28px 24px 0; font-size: 1rem; }
+  .page-nav { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 28px 0 0; font-size: 1rem; }
   .resume-head { padding: 36px 0 32px; }
   .resume-head h1 { font-size: clamp(1.4rem, 4.5vw, 2rem); margin-bottom: 6px; }
   .resume-head p { color: var(--ink-2); margin: 0; }
-  dl.skills { display: grid; grid-template-columns: 190px 1fr; gap: 8px 18px; margin: 0; }
+  dl.skills { display: grid; grid-template-columns: 130px 1fr; gap: 8px 18px; margin: 0; }
   dl.skills dt { color: var(--ink-2); }
   dl.skills dd { margin: 0; }
   @media (max-width: 560px) {
@@ -120,9 +120,6 @@
   .specs thead th { color: var(--grey); font-weight: 500; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; }
   .specs tbody th { color: var(--ink-2); font-weight: 400; }
   .btn-row { display: flex; flex-wrap: wrap; gap: 10px; }
-  ul.skills-list { margin: 4px 0 16px; color: var(--ink-2); }
-  ul.skills-list li { margin-bottom: 9px; }
-  ul.skills-list .k { color: var(--ink); font-weight: 500; }
   .specs tbody th { width: 34%; }
   @media (max-width: 560px) { .specs tbody th { width: 40%; } }
   .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
@@ -152,30 +149,6 @@
   .jump a:hover { color: var(--q-gold); }
   html { scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 16px); }
   @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
-
-  /* Most recent work: a quiet side panel on wide screens, a short block after the featured project otherwise */
-  .recent { border-top: 1px solid var(--line); padding: 36px 0 40px; }
-  .recent h2 { margin-bottom: 16px; }
-  .recent .card { display: grid; grid-template-columns: minmax(0, 220px) 1fr; gap: 20px; align-items: start; }
-  .recent .thumb {
-    margin: 0; padding: 10px; border-radius: 10px; border: 1px solid var(--line-soft);
-    background: radial-gradient(130% 100% at 12% 0%, #22385E 0%, #131927 45%, #0A0A0A 100%);
-  }
-  .recent .thumb img { display: block; width: 100%; height: auto; }
-  .recent h3 { font-size: 0.88rem; }
-  .recent .sub { font-size: 0.85rem; margin: 2px 0 8px; }
-  .recent .desc { font-size: 0.88rem; line-height: 1.6; color: var(--ink-2); }
-  .recent .more { font-size: 0.85rem; }
-  @media (max-width: 560px) {
-    .recent .card { grid-template-columns: minmax(0, 128px) 1fr; gap: 14px; }
-    .recent .thumb { padding: 6px; border-radius: 8px; }
-  }
-  @media (min-width: 1280px) {
-    #home-view > main.wrap { max-width: none; display: grid; grid-template-columns: 1fr minmax(0, 712px) 1fr; column-gap: 40px; }
-    #home-view > main.wrap > section { grid-column: 2; }
-    #home-view > main.wrap > .recent { grid-column: 3; grid-row: 1; justify-self: start; width: 100%; max-width: 250px; }
-    .recent .card { grid-template-columns: 1fr; gap: 14px; }
-  }
 </style>
 </head>
 <body>
@@ -185,7 +158,7 @@
   <header class="wrap">
     <h1>Finlay Lemon</h1>
     <p class="intro">Mechatronics and Robotics Engineering, Queen's University, Kingston. Space systems, rovers, and mechanical design.</p>
-    <p class="seeking">Seeking a 12–16 month internship · willing to relocate.</p>
+    <p class="seeking">Seeking a 12–16 month internship beginning May–September 2027.</p>
     <ul class="links">
       <li><a href="#resume">Résumé</a></li>
       <li><a href="assets/docs/Finlay-Lemon-Resume.pdf" download>Download PDF</a></li>
@@ -204,21 +177,18 @@
   <main class="wrap">
     <section aria-labelledby="featured-h" id="lunar-logistics-rover">
       <h2 id="featured-h"><span class="n">01</span>Featured project</h2>
-      <div class="item-head"><h3>Lunar Logistics Rover</h3><span class="when">Aug – Nov 2026</span></div>
+      <div class="item-head"><h3>Lunar Logistics Rover</h3><span class="when">June 2026 – present</span></div>
       <p class="sub">SolidWorks, SolidWorks Simulation</p>
       <div class="viewer">
         <canvas id="model-canvas" role="img" aria-label="3D model of the rover. Drag to rotate."></canvas>
         <p>Lunar Logistics Rover, SolidWorks model. Drag to rotate.</p>
       </div>
-      <p>An independent concept design for a crewed lunar south-pole utility rover, developed as a response to the Canadian Space Agency's Lunar Utility Vehicle (LUV) program. The rover is sized for 3,500 kg of payload including two crew, with remote and autonomous waypoint modes, and stows inside a 5.75 m lander fairing.</p>
-      <ul class="points skills-list">
-        <li><span class="k">Requirements and systems engineering.</span> Built the design around a decision register that traces requirements from CSA and NASA sources into design decisions, maintained interfaces between subsystems as the design changed, and tracked where the design does not yet comply.</li>
-        <li><span class="k">Terramechanics.</span> Applied the Bekker model with NASA regolith data to derive rolling resistance, traction limits on slopes, and the grouser height needed to climb them.</li>
-        <li><span class="k">Drivetrain sizing.</span> Converted the mobility results into wheel torque and speed requirements, then selected a frameless motor and 120:1 harmonic gearbox, checking continuous, peak and speed margins against catalogue limits.</li>
-        <li><span class="k">Thermal analysis.</span> Analysed cold and hot cases for a pumped fluid loop fed by MMRTG waste heat, including end-of-life RTG output, night survival and radiator sizing.</li>
-        <li><span class="k">FEA and design iteration.</span> Designed a new large-diameter wheel with titanium flexures, an aluminium spine and replaceable grousers, and iterated the flexure in SolidWorks Simulation from a failing first design to a factor of safety of 1.68 at the worst-case load.</li>
-        <li><span class="k">Technical writing.</span> Documented the analysis, trade-offs and open non-compliances in a 34-page technical report.</li>
-      </ul>
+      <figure class="shot">
+        <img src="assets/img/llr-render.jpg" width="1232" height="780" loading="lazy"
+             alt="Render of the Lunar Logistics Rover on a lunar surface, seen from behind: tracked-style wheels, a large cargo box and two blue solar panels, with a long shadow across the regolith under a black sky.">
+        <figcaption>Lunar Logistics Rover on a simulated lunar surface.</figcaption>
+      </figure>
+      <p>A first-pass concept study for a Canadian lunar utility vehicle, answering the Canadian Space Agency's Lunar Utility Vehicle (LUV) program. Sized for the lunar south pole, it carries 3,500 kg of modular cargo, including two astronauts for 8-hour sorties, and folds its front axle to fit a 5.75 m lander fairing. The report covers terramechanics, drive units, thermal design and a new wheel concept, and records where the design still falls short of its requirements.</p>
       <table class="specs">
         <caption class="visually-hidden">Lunar Logistics Rover key figures</caption>
         <tbody>
@@ -234,22 +204,6 @@
       <div class="btn-row"><a class="btn-doc" href="assets/docs/LLR-Concept-Report.pdf" target="_blank" rel="noopener">Read the technical report <span class="ext">PDF · 34 pp</span></a></div>
     </section>
 
-    <aside class="recent" aria-labelledby="recent-h">
-      <h2 id="recent-h">Most recent work</h2>
-      <div class="card">
-        <figure class="thumb">
-          <img src="assets/img/amp-pcb-3d.webp" width="600" height="552" loading="lazy"
-               alt="3D render of a small green circuit board with three blue electrolytic capacitors, a TO-92 transistor, a blue trimmer potentiometer and pin headers.">
-        </figure>
-        <div>
-          <h3>Audio Signal Amplifier</h3>
-          <p class="sub">KiCad · PCB design</p>
-          <p class="desc">An audio-range signal amplifier built around a 2N3904 transistor, on a through-hole board laid out and routed in KiCad.</p>
-          <a class="more" href="assets/img/amp-pcb-layout.png" target="_blank" rel="noopener">View the board layout</a>
-        </div>
-      </div>
-    </aside>
-
     <section aria-labelledby="projects-h">
       <h2 id="projects-h"><span class="n">02</span>Projects</h2>
       <article class="project" id="mars-sample-retrieval-rover">
@@ -260,33 +214,24 @@
                alt="CAD render of the rover with labelled parts: CSA SPRP chassis, deployed solar panels, tube bank holding 6 of 10 tubes, arm with yaw cuff, claw unit gripping a tube, camera unit, suspension bogie and wheels.">
           <figcaption>Rover overview with labelled components, from the design report.</figcaption>
         </figure>
-        <p>A course design project, in a team of three, for a rover to collect the sample tubes cached at Mars's Three Forks Depot, built on the CSA Small Planetary Rover Platform (SPRP).</p>
-        <ul class="points skills-list">
-          <li><span class="k">Mechanism design and CAD.</span> Led the rover design and produced all of the CAD, including the sample retrieval system: a robotic arm with a claw and camera, a ten-tube sample bank, and deployable solar panels.</li>
-          <li><span class="k">Mission concept.</span> Worked through surface operations, fault handling and COSPAR planetary protection requirements as part of the design report.</li>
-          <li><span class="k">Robotics integration.</span> Worked on point-to-point navigation for the hardware phase: ROS 2 and Nav2 on a Raspberry Pi 4 with Arduino motor control, LiDAR SLAM for room mapping, and testing in Gazebo before running on the rover.</li>
-        </ul>
+        <p>A rover concept for collecting the sample tubes cached at Mars's Three Forks Depot, built on the CSA Small Planetary Rover Platform (SPRP). I led the rover's design and did all of the CAD, including the sample retrieval system: a robotic arm with a claw and camera, a ten-tube sample bank, and deployable solar panels.</p>
+        <p>In a second phase, we implemented the software on provided rover hardware: ROS 2 on a Raspberry Pi 4, with an Arduino Uno driving the motors, using SLAM with LiDAR to map a room and navigate autonomously between points. The design report also covers surface operations, fault handling, and COSPAR planetary protection.</p>
         <a class="btn-doc" href="assets/docs/MSR-Rover-Design-Report.pdf" target="_blank" rel="noopener">Read the design report <span class="ext">PDF</span></a>
       </article>
 
       <article class="project" id="wind-tunnels-project">
         <div class="item-head"><h3>Desktop Wind Tunnels</h3><span class="when">Oct 2025 – 2026</span></div>
-        <p class="sub">Independent project · SolidWorks, FDM 3D printing</p>
+        <p class="sub">Independent project · SolidWorks, FDM 3D printing, COTS integration</p>
         <figure class="shot">
           <img src="assets/img/wind-tunnel-cad.jpg" width="1111" height="692" loading="lazy" alt="Labelled CAD model of the open-return wind tunnel: intake mesh, honeycomb, contraction, test box, diffuser and fan module.">
           <figcaption>Open-return tunnel, labelled CAD.</figcaption>
         </figure>
-        <p>Two low-cost desktop wind tunnels, designed as an alternative to the large commercial units used at Queen's. The open-return tunnel was built and tested; the closed-loop tunnel was taken through full CAD.</p>
-        <ul class="points skills-list">
-          <li><span class="k">Design for additive manufacturing.</span> Split the open-return tunnel into modular sections that print in about 20 hours on household filament, so any damaged part can be reprinted and replaced on its own.</li>
-          <li><span class="k">Joint design.</span> Designed a ridge-and-collar joint: printed collars snap over triangular ridges on each section and pull them tight, sealing the joint with a single bolt.</li>
-          <li><span class="k">Flow conditioning and test.</span> Designed the contraction, honeycomb and screens, diffuser and fan module, and confirmed flow quality with smoke visualisation over a test airfoil.</li>
-        </ul>
+        <p>Two wind tunnels designed to be cheap to make and able to show airflow. The first is an open-return tunnel, built from 3D-printed and off-the-shelf parts as a low-cost alternative to the large commercial units used at Queen's. It is modular, so it prints in about 20 hours with household filament and broken parts can be swapped out. I designed a ridge-and-collar joint for it: printed collars snap around triangular ridges on each section and pull them tight, sealing the joint with a single bolt. It produced visible streamlines over a test airfoil.</p>
         <figure class="shot">
           <video class="flow-clip" poster="assets/img/flow-poster.jpg" width="800" height="404" autoplay muted loop playsinline preload="metadata" aria-label="Smoke streamlines flowing over the test airfoil in the open-return tunnel"><source src="assets/video/flow.webm" type="video/webm"><source src="assets/video/flow.mp4" type="video/mp4"></video>
           <figcaption>Smoke streamlines over the test airfoil, in the open-return tunnel.</figcaption>
         </figure>
-        <p>I then scaled the design up to a closed-loop tunnel twice the length, with a 5.29 contraction ratio, hexagonal honeycomb and turning vanes in each corner, for a theoretical 20 m/s. It was planned as a platform for comparison testing against an AGARD-B benchmark model.</p>
+        <p>The second is a closed-loop design twice the size, which recycles the exhaust air back to the fan for faster, more efficient flow. It was planned as a platform for comparison testing against an AGARD-B benchmark model, and was taken through CAD but not built.</p>
         <table class="specs">
           <thead><tr><th scope="col"></th><th scope="col">Open return</th><th scope="col">Closed loop</th></tr></thead>
           <tbody>
@@ -353,8 +298,8 @@
   <main class="wrap">
     <div class="resume-head">
       <h1 id="resume-title" tabindex="-1">Finlay Lemon — Résumé</h1>
-      <p>Seeking a 12–16 month internship · Willing to relocate</p>
-      <p><a href="mailto:23pbs2@queensu.ca">23pbs2@queensu.ca</a> · <a href="https://www.linkedin.com/in/finlay-lemon" target="_blank" rel="noopener">linkedin.com/in/finlay-lemon</a></p>
+      <p><a href="https://www.linkedin.com/in/finlay-lemon" target="_blank" rel="noopener">linkedin.com/in/finlay-lemon</a></p>
+      <p>Seeking a 12–16 month internship beginning May–September 2027.</p>
     </div>
 
     <section aria-labelledby="edu-h">
@@ -363,53 +308,66 @@
       <p class="sub">BASc, Mechatronics and Robotics Engineering, Kingston, Ontario</p>
     </section>
 
-    <section aria-labelledby="proj-h">
-      <h2 id="proj-h">Projects</h2>
+    <section aria-labelledby="exp-h">
+      <h2 id="exp-h">Experience</h2>
       <div class="item">
-        <div class="item-head"><h3>Room-mapping Rover</h3><span class="when">Jan – Apr 2026</span></div>
-        <p class="sub">ROS 2, RPLidar, Python, RViz, Gazebo</p>
+        <div class="item-head"><h3>Research Lead, Queen's Rocket Engineering Team</h3><span class="when">Sep 2025 – Apr 2026</span></div>
         <ul class="points">
-          <li>Built an autonomous rover on the Lynxmotion 4WD platform in a team of 3, using an RPLidar for LiDAR-based SLAM mapping in ROS 2, with RViz for visualization.</li>
-          <li>Integrated the SLAM mapping and developed the point-to-point navigation; used Gazebo Sim as a proof-of-concept before testing on the physical rover.</li>
+          <li>Co-led a 15-person team to produce a full CAN-RGX research report in a two-month window.</li>
+          <li>Investigated high surface-area solids for convection-independent heat exchangers.</li>
         </ul>
       </div>
       <div class="item">
-        <div class="item-head"><h3>Lunar Logistics Rover</h3><span class="when">Aug – Nov 2026</span></div>
-        <p class="sub">SolidWorks, SolidWorks Simulation</p>
+        <div class="item-head"><h3>Order-handling Specialist, Coca-Cola Canada Bottling</h3><span class="when">May – Sep 2025</span></div>
         <ul class="points">
-          <li>Developed an independent concept design for the Canadian Space Agency's Lunar Utility Vehicle (LUV) program, maintaining interface control across electrical, mechanical, and thermal subsystems.</li>
-          <li>Documented the design in a consolidated baseline, trade studies, and a requirements specification register, revised as the design matured.</li>
-          <li>Applied Bekker terramechanics to develop a novel wheel concept and validated it with FEA, raising flexure FoS from below 1.0 to 1.68 without significant mass increase.</li>
-          <li>Defined a dual-mode, mechanically pumped fluid loop for thermal control that uses RTG waste heat to warm cold components and cools the six drive units and all electronics.</li>
+          <li>Assembled and routed over $2.3 million of product for customers across Eastern Ontario.</li>
+          <li>Operated powered material-handling equipment in a fast-paced environment with no recorded incidents.</li>
         </ul>
       </div>
       <div class="item">
-        <div class="item-head"><h3>Desktop Wind Tunnel</h3><span class="when">Oct – Nov 2025</span></div>
-        <p class="sub">SolidWorks, FDM 3D printing</p>
+        <div class="item-head"><h3>Team Member, Queen's Rocket Engineering Team</h3><span class="when">2024 – present</span></div>
         <ul class="points">
-          <li>Designed and built a working, mostly 3D-printed benchtop wind tunnel with streamline visualization, as a low-cost alternative to the large commercial units used at Queen's.</li>
-          <li>Used a modular design so it can be made in about 20 hours with household filament; tested the airflow and streamline visualization to evaluate the completed design.</li>
+          <li>Helping design a hybrid-propulsion supersonic sounding rocket.</li>
+          <li>CAD design and analysis of the aerostructure and auxiliary ground equipment.</li>
         </ul>
       </div>
     </section>
 
-    <section aria-labelledby="exp-h">
-      <h2 id="exp-h">Experience</h2>
+    <section aria-labelledby="proj-h">
+      <h2 id="proj-h">Projects</h2>
       <div class="item">
-        <div class="item-head"><h3>Queen's Rocket Engineering Team (QRET)</h3><span class="when">2024 – present</span></div>
-        <p class="sub">Research Lead (Sep 2025 – Apr 2026); Mechanical Team Member · Kingston, Ontario</p>
+        <div class="item-head"><h3>Lunar Logistics Rover</h3><span class="when">June 2026 – present</span></div>
+        <p class="sub">SolidWorks, SolidWorks Simulation</p>
         <ul class="points">
-          <li>Designing the mechanical interface between the avionics circuits and the airframe of a hybrid-propulsion supersonic sounding rocket, including an access door through the airframe.</li>
-          <li>Co-led a 15-person team to deliver a complete CAN-RGX microgravity research proposal on schedule within a 2-month window, coordinating sourcing and internal review cycles.</li>
-          <li>Built the proposal's science case around TPMS high-surface-area heat exchanger structures that transfer heat without relying on convection in microgravity.</li>
+          <li>Developing a first-pass design solution to the Canadian Space Agency's Lunar Utility Vehicle (LUV) project.</li>
+          <li>Defined electrical, mechanical, and thermal subsystems, maintaining interface control across a rolling development cycle.</li>
+          <li>Applied Bekker terramechanics to develop a new wheel concept (0.45 m wide, 1.2 m diameter) and validated feasibility with FEA, raising the flexure factor of safety from below 1 to 1.68 without significant mass increase.</li>
+          <li>Documented the design rationale and trade studies in a standalone technical report.</li>
         </ul>
       </div>
       <div class="item">
-        <div class="item-head"><h3>Coca-Cola Canada Bottling Limited</h3><span class="when">May – Sep 2025</span></div>
-        <p class="sub">Order-handling Specialist · Kingston, Ontario</p>
+        <div class="item-head"><h3>Room-mapping Rover</h3><span class="when">Jan – Apr 2026</span></div>
+        <p class="sub">ROS, RViz, Python, SolidWorks</p>
         <ul class="points">
-          <li>Operated powered material-handling equipment in a fast-paced, safety-sensitive setting with zero incidents.</li>
-          <li>Assembled and routed over $2,300,000 of product for customers across the Eastern Ontario region.</li>
+          <li>Designed, in a team of three, an autonomous rover built on the Lynxmotion 4WD platform.</li>
+          <li>Integrated ROS with SLAM to enable LiDAR-based mapping and autonomous point-to-point navigation.</li>
+        </ul>
+      </div>
+      <div class="item">
+        <div class="item-head"><h3>Desktop Wind Tunnel</h3><span class="when">Oct – Nov 2025</span></div>
+        <p class="sub">SolidWorks, FDM 3D printing, COTS integration</p>
+        <ul class="points">
+          <li>Prototyped a working wind tunnel with visible streamlines from 3D-printed and off-the-shelf parts, as a low-cost alternative to the large commercial units used at Queen's.</li>
+          <li>Used a modular design, allowing manufacture in about 20 hours with household filament.</li>
+        </ul>
+      </div>
+      <div class="item">
+        <div class="item-head"><h3>CAN-RGX Proposal</h3><span class="when">Sep – Dec 2025</span></div>
+        <p class="sub">Word, Teams, Zotero</p>
+        <ul class="points">
+          <li>Co-authored a CAN-RGX research project proposal for the 2025 cycle.</li>
+          <li>Built the proposal around heat exchange using TPMS high surface-area volumes in microgravity, targeting heat exchangers that do not rely on convection.</li>
+          <li>Delivered the complete submission package on schedule within a two-month deadline, coordinating 15 people, sourcing, and internal review cycles.</li>
         </ul>
       </div>
     </section>
@@ -417,10 +375,10 @@
     <section aria-labelledby="skills-h">
       <h2 id="skills-h">Technical skills</h2>
       <dl class="skills">
-        <dt>CAD &amp; Design</dt><dd>SolidWorks (4 years), Siemens NX (6 months), FDM 3D printing</dd>
-        <dt>Sensors &amp; Hardware</dt><dd>LiDAR (RPLidar), soldering, multimeter / oscilloscope, mechanical assembly, data collection</dd>
-        <dt>Analysis &amp; Software</dt><dd>SolidWorks Simulation (FEA), MATLAB / Simulink, ROS 2, RViz, Gazebo</dd>
-        <dt>Certifications</dt><dd>Amateur Radio — ISED Canada Advanced Qualification</dd>
+        <dt>CAD</dt><dd>SolidWorks (4 years), Siemens NX (6 months)</dd>
+        <dt>Software</dt><dd>ROS, RViz, Python, C++, MATLAB / Simulink, VHDL</dd>
+        <dt>Analysis</dt><dd>SolidWorks Simulation (FEA), Excel</dd>
+        <dt>Certification</dt><dd>Amateur Radio, ISED Canada Basic Qualification</dd>
       </dl>
     </section>
   </main>
