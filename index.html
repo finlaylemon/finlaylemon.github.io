@@ -6,7 +6,7 @@
 <meta name="color-scheme" content="dark">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Michroma&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Michroma&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Finlay Lemon | Mechatronics and Robotics Engineering">
 <meta property="og:description" content="Mechatronics and Robotics Engineering student at Queen's University. Space systems, rovers, and mechanical design.">
@@ -15,170 +15,205 @@
 <meta name="description" content="Finlay Lemon, Mechatronics and Robotics Engineering student at Queen's University, seeking a 12 to 16 month internship.">
 <style>
   :root {
-    --bg: #0A0A0A;
-    --panel: #151515;
+    --bg: #121212;
+    --paper: #1A1A1A;
     --ink: #FFFFFF;
-    --ink-2: #A6A6A6;
-    --line: #333333;
-    --line-soft: #242424;
+    --ink-2: #B0B0B0;
     --grey: #8C8C8C;
+    --hi: #4A4A4A;
+    --lo: #000000;
+    --dk: #000000;
+    --btn: #2A2A2A;
+    --btn-hi: #6A6A6A;
+    --link: #7FB2FF;
+    --visited: #C49BFF;
+    --active: #FF5A5A;
+    --head: #FABD0F;
     --q-blue: #1A4C99;
     --q-gold: #FABD0F;
     --q-red: #B90E31;
     --tri: linear-gradient(120deg, var(--q-blue) 0 33.34%, var(--q-gold) 33.34% 66.67%, var(--q-red) 66.67% 100%);
     --model-fill: #E6E6E6;
     --model-edge: #0A0A0A;
-    --display: "Eurostile", "Eurostile Extended", "Michroma", "Helvetica Neue", Arial, sans-serif;
-    --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+    --display: "Michroma", Arial, sans-serif;
+    --mono: "IBM Plex Mono", "Courier New", monospace;
     box-sizing: border-box;
     padding-top: env(safe-area-inset-top, 0px);
     padding-bottom: env(safe-area-inset-bottom, 0px);
   }
 
-  *, *::before, *::after { box-sizing: border-box; }
-  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--ink);
-    font-family: var(--mono);
-    font-size: 15px;
-    line-height: 1.65;
-    border-top: 0;
-    -webkit-font-smoothing: antialiased;
-  }
-  a { color: inherit; text-decoration-color: var(--grey); text-underline-offset: 3px; }
-  a:hover { color: var(--q-gold); text-decoration-color: var(--q-gold); }
-  :focus-visible { outline: 2px solid var(--q-gold); outline-offset: 2px; }
+  *, *::before, *::after { box-sizing: border-box; border-radius: 0; }
+  html { scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 16px); }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--mono); font-size: 15px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+  body::before { content: ""; display: block; height: 10px; background: var(--tri); }
+  a { color: var(--link); text-decoration: underline; }
+  a:visited { color: var(--visited); }
+  a:active { color: var(--active); }
+  :focus-visible { outline: 1px dotted var(--ink); outline-offset: 2px; }
+  [tabindex="-1"]:focus { outline: none; }
   [hidden] { display: none !important; }
-
-  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
-
-  header { padding: 56px 0 44px; }
-  h1 { font-family: var(--display); font-size: clamp(1.7rem, 5.5vw, 2.6rem); font-weight: 700; font-style: italic; font-synthesis: weight style; letter-spacing: 0.01em; line-height: 1.15; margin: 0 0 10px; }
-  .intro { color: var(--ink-2); margin: 0 0 6px; max-width: 58ch; }
-  .seeking { margin: 0 0 22px; display: flex; align-items: center; gap: 10px; }
-  .seeking::before { content: ""; width: 24px; height: 12px; background: var(--tri); flex: none; }
-  .links { display: flex; flex-wrap: wrap; gap: 6px 24px; font-size: 1rem; margin: 0; padding: 0; list-style: none; }
-
-  section { border-top: 1px solid var(--line); padding: 36px 0 40px; }
-  h2 { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--grey); margin: 0 0 22px; }
-  h3 { font-family: var(--display); font-size: 0.98rem; font-weight: 700; font-style: italic; font-synthesis: weight style; margin: 0; letter-spacing: 0.01em; line-height: 1.4; }
-  h2 .n { color: var(--q-gold); margin-right: 6px; }
-  p { margin: 0 0 10px; }
-
-  .item + .item { margin-top: 28px; }
-  .item-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; }
-  .when { color: var(--ink-2); font-size: 0.95rem; white-space: nowrap; }
-  .sub { color: var(--ink-2); font-size: 0.97rem; margin: 2px 0 10px; }
-  ul.points { margin: 0; padding-left: 1.1em; }
-  ul.points li { margin-bottom: 6px; }
-  ul.points li::marker { color: var(--grey); }
-  section { border-top-color: var(--line); }
-
-  .viewer { margin: 18px 0 18px; background: radial-gradient(130% 100% at 12% 0%, #22385E 0%, #131927 45%, #0A0A0A 100%); border: 1px solid var(--line-soft); }
-  .viewer canvas { display: block; width: 100%; aspect-ratio: 16 / 10; cursor: grab; touch-action: pan-y; }
-  .viewer canvas:active { cursor: grabbing; }
-  .viewer p { margin: 0; padding: 7px 12px; border-top: 1px solid var(--line-soft); background: rgba(10,10,10,0.5); font-size: 0.85rem; color: var(--ink-2); }
-
-  .shot {
-    margin: 18px 0 18px; padding: clamp(10px, 2.2vw, 18px); border-radius: 10px; overflow: hidden;
-    background: radial-gradient(130% 100% at 12% 0%, #22385E 0%, #131927 45%, #0A0A0A 100%);
-    border: 1px solid var(--line-soft);
-  }
-  .shot img { display: block; width: 100%; height: auto; border-radius: 6px; box-shadow: 0 10px 30px rgba(0,0,0,0.55); }
-  .shot figcaption { margin: 12px 2px 0; font-size: 0.85rem; color: var(--ink-2); }
-  .btn-doc {
-    display: inline-flex; align-items: center; gap: 10px; margin-top: 8px; padding: 10px 16px;
-    border: 1px solid var(--grey); border-radius: 6px; text-decoration: none; font-size: 0.95rem;
-  }
-  .btn-doc:hover { border-color: var(--q-gold); color: var(--q-gold); }
-  .btn-doc .ext { font-size: 0.78rem; color: var(--grey); letter-spacing: 0.08em; }
-  .btn-doc:hover .ext { color: inherit; }
-  .project + .project { margin-top: 48px; padding-top: 40px; border-top: 1px solid var(--line); }
-  /* Résumé page */
-  .page-nav { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 28px 24px 0; font-size: 1rem; }
-  .resume-head { padding: 36px 0 32px; }
-  .resume-head h1 { font-size: clamp(1.4rem, 4.5vw, 2rem); margin-bottom: 6px; }
-  .resume-head p { color: var(--ink-2); margin: 0; }
-  dl.skills { display: grid; grid-template-columns: 190px 1fr; gap: 8px 18px; margin: 0; }
-  dl.skills dt { color: var(--ink-2); }
-  dl.skills dd { margin: 0; }
-  @media (max-width: 560px) {
-    dl.skills { grid-template-columns: 1fr; gap: 0; }
-    dl.skills dd { margin-bottom: 10px; }
-  }
-
-  #resume-view main { background: var(--bg); box-shadow: 0 0 0 100vmax var(--bg); clip-path: inset(0 -100vmax); }
-  body::before { content: ""; display: block; height: 18px; background: var(--tri); }
-  footer::before { content: ""; display: block; height: 6px; background: var(--tri); margin: 0 0 24px; }
-  .viewer { border-radius: 10px; overflow: hidden; }
-  .viewer::after { content: ""; display: block; height: 6px; background: var(--tri); }
-  footer { border-top: 0; padding: 8px 0 56px; color: var(--ink-2); font-size: 0.95rem; }
-  .specs { width: 100%; border-collapse: collapse; margin: 16px 0 14px; font-size: 0.9rem; }
-  .specs th, .specs td { text-align: left; padding: 7px 10px 7px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
-  .specs thead th { color: var(--grey); font-weight: 500; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; }
-  .specs tbody th { color: var(--ink-2); font-weight: 400; }
-  .btn-row { display: flex; flex-wrap: wrap; gap: 10px; }
-  ul.skills-list { margin: 4px 0 16px; color: var(--ink-2); }
-  ul.skills-list li { margin-bottom: 9px; }
-  ul.skills-list .k { color: var(--ink); font-weight: 500; }
-  .specs tbody th { width: 34%; }
-  @media (max-width: 560px) { .specs tbody th { width: 40%; } }
   .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 
-  /* Gallery page */
-  .gallery-head { padding: 36px 0 28px; }
-  .gallery-head h1 { font-size: clamp(1.4rem, 4.5vw, 2rem); margin-bottom: 8px; }
-  .gallery-head p { color: var(--ink-2); margin: 0; max-width: 60ch; }
-  .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-  .gallery figure { margin: 0; padding: 12px; border-radius: 10px; border: 1px solid var(--line-soft);
-    background: radial-gradient(130% 100% at 12% 0%, #22385E 0%, #131927 45%, #0A0A0A 100%);
-    display: flex; flex-direction: column; }
-  .gallery figure.wide { grid-column: 1 / -1; }
-  .gallery .frame { flex: 1; display: grid; place-items: center; }
-  .gallery img { display: block; max-width: 100%; height: auto; border-radius: 6px; box-shadow: 0 8px 24px rgba(0,0,0,0.5); }
-  .gallery figure img { width: 100%; }
-  .gallery figure.portrait img { width: auto; height: 260px; }
-  [tabindex="-1"]:focus { outline: none; }
-  .gallery figcaption { margin-top: 10px; font-size: 0.85rem; color: var(--ink-2); }
-  @media (max-width: 560px) { .gallery { grid-template-columns: 1fr; } .gallery figure.portrait img { height: 300px; } }
-  .shot video { display: block; width: 100%; height: auto; border-radius: 6px; box-shadow: 0 10px 30px rgba(0,0,0,0.55); background: #000; }
-  #home-view > header.wrap { padding-top: 44px; padding-bottom: 32px; }
-  .jump { margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 18px; font-size: 0.92rem; }
-  .jump-label { color: var(--grey); font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; }
-  .jump ul { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 0; padding: 0; list-style: none; }
-  .jump a { color: var(--ink-2); }
-  .jump a:hover { color: var(--q-gold); }
-  html { scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 16px); }
-  @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
 
-  /* Most recent work: a quiet side panel on wide screens, a short block after the featured project otherwise */
-  .recent { border-top: 1px solid var(--line); padding: 36px 0 40px; }
-  .recent h2 { margin-bottom: 16px; }
-  .recent .card { display: grid; grid-template-columns: minmax(0, 220px) 1fr; gap: 20px; align-items: start; }
-  .recent .thumb {
-    margin: 0; padding: 10px; border-radius: 10px; border: 1px solid var(--line-soft);
-    background: radial-gradient(130% 100% at 12% 0%, #22385E 0%, #131927 45%, #0A0A0A 100%);
+  /* Etched rule, like a default <hr> */
+  .rule, section, .recent, .project + .project, footer::before { border-top: 1px solid var(--lo); box-shadow: inset 0 1px 0 var(--hi); }
+
+  /* Top bar: [ Work | Radio | Photography | Résumé ] */
+  .topbar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 16px; padding: 10px 16px 10px; }
+  .topbar .name { font-family: var(--display); font-size: 0.9rem; color: var(--ink); text-decoration: none; }
+  .topbar ul { display: flex; flex-wrap: wrap; margin: 0; padding: 0; list-style: none; }
+  .topbar ul::before { content: "[\00a0"; }
+  .topbar ul::after { content: "\00a0]"; }
+  .topbar li + li::before { content: "\00a0|\00a0"; color: var(--ink); }
+  .topbar a[aria-current] { color: var(--ink); text-decoration: none; }
+
+  header { padding: 28px 0 24px; }
+  h1 { font-family: var(--display); font-weight: 400; font-style: normal; font-synthesis: none; font-size: clamp(1.5rem, 5vw, 2.2rem); line-height: 1.2; margin: 0 0 10px; color: var(--head); }
+  #home-view > header h1, #home-view > header .intro, #home-view > header .seeking, #home-view > header .links { text-align: center; justify-content: center; }
+  h2 { font-family: var(--display); font-weight: 400; font-size: 1.15rem; color: var(--head); margin: 0 0 16px; }
+  h2 .n { margin-right: 10px; }
+  h2 .n::after { content: "."; }
+  h3 { font-family: var(--display); font-weight: 400; font-style: normal; font-synthesis: none; font-size: 0.95rem; line-height: 1.4; letter-spacing: 0.01em; margin: 0; }
+  p { margin: 0 0 10px; }
+  .intro { color: var(--ink-2); margin: 0 auto 6px; max-width: 58ch; }
+  .seeking { margin: 0 0 14px; display: flex; align-items: center; gap: 10px; }
+  .seeking::before { content: ""; width: 24px; height: 12px; background: var(--tri); flex: none; }
+  .links { display: flex; flex-wrap: wrap; gap: 4px 24px; margin: 0; padding: 0; list-style: none; }
+
+  .jump { margin-top: 22px; padding-top: 14px; }
+  .jump-label { font-weight: 400; }
+  .jump ul { margin: 4px 0 0; padding-left: 1.5em; list-style: disc; }
+
+  section { padding: 24px 0 28px; }
+  .item + .item { margin-top: 22px; }
+  .item-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+  .when { color: var(--ink-2); font-size: 0.92rem; white-space: nowrap; }
+  .sub { color: var(--ink-2); font-size: 0.93rem; margin: 2px 0 10px; }
+  ul.points { margin: 0; padding-left: 1.3em; }
+  ul.points li { margin-bottom: 6px; }
+  ul.skills-list { margin: 4px 0 16px; }
+  ul.skills-list li { margin-bottom: 8px; color: var(--ink-2); }
+  ul.skills-list .k { color: var(--ink); }
+  .project + .project { margin-top: 32px; padding-top: 28px; }
+
+  /* Sunken white boxes for images, video and the 3D model */
+  .viewer, .shot, .gallery figure, .recent .thumb, .ph-box {
+    background: var(--paper); border: 2px solid; border-color: var(--lo) var(--hi) var(--hi) var(--lo);
   }
-  .recent .thumb img { display: block; width: 100%; height: auto; }
+  .viewer { margin: 16px 0; }
+  .viewer canvas { display: block; width: 100%; aspect-ratio: 16 / 10; cursor: grab; touch-action: pan-y; }
+  .viewer canvas:active { cursor: grabbing; }
+  .viewer p { margin: 0; padding: 4px 8px; border-top: 1px solid var(--lo); font-size: 0.85rem; text-align: center; }
+  .shot { margin: 16px 0; padding: 6px; }
+  .shot img, .shot video { display: block; width: 100%; height: auto; border: 1px solid var(--dk); }
+  .shot video { background: #000; }
+  .pair-row { display: flex; gap: 6px; align-items: flex-start; }
+  .pair-row img { min-width: 0; width: 100%; height: auto; }
+  .shot figcaption { margin: 6px 2px 0; font-size: 0.85rem; text-align: center; }
+
+  /* Win95-style buttons */
+  .btn-row { display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn-doc, .btn-doc:visited {
+    display: inline-flex; align-items: baseline; gap: 10px; margin-top: 8px; padding: 4px 14px;
+    background: var(--btn); color: var(--ink); text-decoration: none; font-size: 0.92rem;
+    border: 2px solid; border-color: var(--btn-hi) var(--dk) var(--dk) var(--btn-hi); box-shadow: inset -1px -1px 0 #1A1A1A;
+  }
+  .btn-doc:active { border-color: var(--dk) var(--btn-hi) var(--btn-hi) var(--dk); box-shadow: inset 1px 1px 0 #1A1A1A; color: var(--ink); }
+  .btn-doc .ext { font-size: 0.78rem; color: var(--grey); }
+
+  /* Tables like <table border="1"> */
+  .specs { width: 100%; border-collapse: separate; border-spacing: 2px; margin: 16px 0 14px; font-size: 0.88rem;
+    border: 1px solid; border-color: var(--hi) var(--lo) var(--lo) var(--hi); }
+  .specs th, .specs td { text-align: left; padding: 3px 6px; vertical-align: top; border: 1px solid; border-color: var(--lo) var(--hi) var(--hi) var(--lo); }
+  .specs th { font-weight: 400; }
+  .specs thead th { color: var(--grey); }
+  .specs tbody th { font-weight: 400; width: 34%; }
+  @media (max-width: 560px) { .specs tbody th { width: 40%; } }
+
+  /* Under construction */
+  .construction { height: 14px; border: 1px solid #555555; background: repeating-linear-gradient(-45deg, #000 0 10px, #FFD200 10px 20px); }
+  .uc { margin: 6px 0 14px; font-weight: 400; }
+  .ph-box { display: grid; place-items: center; aspect-ratio: 640 / 496; width: 100%; margin: 0; color: var(--grey); font-size: 0.9rem; text-align: center; padding: 10px; }
+
+  /* Most recent work */
+  .recent { padding: 24px 0 28px; }
+  .recent h2 { font-size: 1rem; margin-bottom: 12px; }
+  .recent .card { display: grid; grid-template-columns: minmax(0, 220px) 1fr; gap: 18px; align-items: start; }
+  .recent .thumb { margin: 0; padding: 6px; }
   .recent h3 { font-size: 0.88rem; }
   .recent .sub { font-size: 0.85rem; margin: 2px 0 8px; }
-  .recent .desc { font-size: 0.88rem; line-height: 1.6; color: var(--ink-2); }
+  .recent .desc { font-size: 0.88rem; line-height: 1.55; color: var(--ink-2); }
   .recent .more { font-size: 0.85rem; }
-  @media (max-width: 560px) {
-    .recent .card { grid-template-columns: minmax(0, 128px) 1fr; gap: 14px; }
-    .recent .thumb { padding: 6px; border-radius: 8px; }
-  }
+  /* Hand of cards: fixed fan, the card under the pointer is brought to the front. No transitions. */
+  .hand { position: relative; display: block; width: 100%; aspect-ratio: 1 / 1; margin: 0; padding: 0; border: 0; background: none; color: inherit; font: inherit; cursor: pointer; }
+  .recent .hand img { position: absolute; left: 17%; top: 14%; width: 66%; height: 66%; object-fit: cover; background: var(--bg);
+    border: 1px solid var(--dk); transform-origin: 50% 130%; box-shadow: 3px 3px 0 var(--lo); }
+  .hand img:nth-child(1) { transform: rotate(-11deg); }
+  .hand img:nth-child(2) { transform: rotate(0deg); }
+  .hand img:nth-child(3) { transform: rotate(11deg); }
+  .hand img.top { z-index: 3; border: 2px solid var(--head); }
+  .hand-cap { display: flex; justify-content: space-between; gap: 8px; margin: 4px 2px 0; font-size: 0.78rem; }
+  .hand-cap .count { color: var(--grey); }
+  @media (max-width: 560px) { .recent .card { grid-template-columns: minmax(0, 150px) 1fr; gap: 14px; } }
   @media (min-width: 1280px) {
     #home-view > main.wrap { max-width: none; display: grid; grid-template-columns: 1fr minmax(0, 712px) 1fr; column-gap: 40px; }
     #home-view > main.wrap > section { grid-column: 2; }
     #home-view > main.wrap > .recent { grid-column: 3; grid-row: 1; justify-self: start; width: 100%; max-width: 250px; }
-    .recent .card { grid-template-columns: 1fr; gap: 14px; }
+    .recent .card { grid-template-columns: 1fr; gap: 12px; }
   }
+
+  /* Sub-pages */
+  .page-nav { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 18px 16px 0; }
+  .resume-head, .gallery-head { padding: 24px 0 22px; }
+  .resume-head h1, .gallery-head h1 { font-size: clamp(1.3rem, 4.5vw, 1.8rem); margin-bottom: 6px; }
+  .resume-head p { color: var(--ink-2); margin: 0; }
+  .gallery-head p { color: var(--ink-2); margin: 0; max-width: 60ch; }
+  #resume-view main { background: var(--bg); }
+  dl.skills { display: grid; grid-template-columns: 190px 1fr; gap: 8px 18px; margin: 0; }
+  dl.skills dt { color: var(--ink-2); }
+  dl.skills dd { margin: 0; }
+  @media (max-width: 560px) { dl.skills { grid-template-columns: 1fr; gap: 0; } dl.skills dd { margin-bottom: 10px; } }
+
+  .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .gallery figure { margin: 0; padding: 6px; display: flex; flex-direction: column; }
+  .gallery figure.wide { grid-column: 1 / -1; }
+  .gallery .frame { flex: 1; display: grid; place-items: center; }
+  .gallery img { display: block; max-width: 100%; height: auto; border: 1px solid var(--dk); }
+  .gallery figure img { width: 100%; }
+  .gallery figure.portrait img { width: auto; height: 260px; }
+  .gallery .frame.ph { aspect-ratio: 4 / 3; background: #222222; border: 1px dashed #555555; color: var(--grey); font-size: 0.85rem; }
+  .gallery figcaption { margin-top: 6px; font-size: 0.85rem; text-align: center; }
+  @media (max-width: 560px) { .gallery { grid-template-columns: 1fr; } .gallery figure.portrait img { height: 300px; } }
+
+  #photography-view .wrap { max-width: 1100px; }
+  .photos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .photos figure { margin: 0; padding: 6px; background: var(--paper); border: 2px solid; border-color: var(--lo) var(--hi) var(--hi) var(--lo); }
+  .photos a { display: block; }
+  .photos img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border: 1px solid var(--dk); }
+  .photos figcaption { margin-top: 6px; font-size: 0.85rem; text-align: center; color: var(--ink-2); }
+  @media (max-width: 900px) { .photos { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .photos { grid-template-columns: 1fr; } }
+  .ariss { margin: 0 0 4px; width: 100%; max-width: 360px; }
+  .ariss img { display: block; width: 100%; height: auto; border: 1px solid var(--dk); }
+  .ariss figcaption { margin-top: 8px; font-size: 0.88rem; color: var(--ink-2); }
+  footer { padding: 0 0 40px; color: var(--ink-2); font-size: 0.9rem; }
+  footer::before { content: ""; display: block; height: 0; margin: 0 0 16px; }
+  footer .updated { display: block; margin-top: 4px; font-size: 0.8rem; color: var(--grey); }
+  @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 </style>
 </head>
 <body>
+
+<nav class="topbar" aria-label="Site">
+  <a class="name" href="#">Finlay Lemon</a>
+  <ul>
+    <li><a href="#" data-route="">Work</a></li>
+    <li><a href="#radio" data-route="#radio">Radio</a></li>
+    <li><a href="#photography" data-route="#photography">Photography</a></li>
+    <li><a href="#resume" data-route="#resume">Résumé</a></li>
+  </ul>
+</nav>
 
 <!-- ================= HOME ================= -->
 <div id="home-view">
@@ -191,12 +226,13 @@
       <li><a href="assets/docs/Finlay-Lemon-Resume.pdf" download>Download PDF</a></li>
       <li><a href="https://www.linkedin.com/in/finlay-lemon" target="_blank" rel="noopener">LinkedIn</a></li>
     </ul>
-    <nav class="jump" aria-label="Jump to a project">
-      <span class="jump-label">Jump to</span>
+    <nav class="jump rule" aria-label="Contents">
+      <span class="jump-label">Contents:</span>
       <ul>
         <li><a href="#lunar-logistics-rover">Lunar Logistics Rover</a></li>
         <li><a href="#mars-sample-retrieval-rover">Mars Sample Retrieval Rover</a></li>
         <li><a href="#wind-tunnels-project">Desktop Wind Tunnels</a></li>
+        <li><a href="#radio">Amateur radio: ARISS image</a></li>
       </ul>
     </nav>
   </header>
@@ -242,8 +278,15 @@
       <h2 id="recent-h">Most recent work</h2>
       <div class="card">
         <figure class="thumb">
-          <img src="assets/img/amp-pcb-3d.webp" width="600" height="552" loading="lazy"
-               alt="3D render of a small green circuit board with three blue electrolytic capacitors, a TO-92 transistor, a blue trimmer potentiometer and pin headers.">
+          <button type="button" class="hand" id="amp-hand" aria-label="Audio amplifier images: assembled board, 3 of 3. Press to show the next image.">
+            <img src="assets/img/amp-pcb-3d.webp" width="600" height="552" loading="lazy" data-cap="KiCad 3D render"
+                 alt="3D render of a small green circuit board with three blue electrolytic capacitors, a TO-92 transistor, a blue trimmer potentiometer and pin headers.">
+            <img src="assets/img/amp-pcb-bare.jpg" width="720" height="720" loading="lazy" data-cap="Bare PCB"
+                 alt="The fabricated blue circuit board before assembly, with white silkscreen labels, empty plated holes and the quote &ldquo;That's engineering.&rdquo;">
+            <img src="assets/img/amp-pcb-built.jpg" width="720" height="720" loading="lazy" data-cap="Assembled board" class="top"
+                 alt="The same blue board assembled, with yellow ceramic capacitors, blue resistors, a black TO-92 transistor and yellow pin headers soldered in.">
+          </button>
+          <figcaption class="hand-cap" aria-hidden="true"><span class="label">Assembled board</span><span class="count">3/3</span></figcaption>
         </figure>
         <div>
           <h3>Audio Signal Amplifier</h3>
@@ -277,8 +320,15 @@
         <div class="item-head"><h3>Desktop Wind Tunnels</h3><span class="when">Oct 2025 – 2026</span></div>
         <p class="sub">Independent project · SolidWorks, FDM 3D printing</p>
         <figure class="shot">
-          <img src="assets/img/wind-tunnel-cad.jpg" width="1111" height="692" loading="lazy" alt="Labelled CAD model of the open-return wind tunnel: intake mesh, honeycomb, contraction, test box, diffuser and fan module.">
-          <figcaption>Open-return tunnel, labelled CAD.</figcaption>
+          <video class="flow-clip" poster="assets/img/flow-poster.jpg" width="800" height="404" autoplay muted loop playsinline preload="metadata" aria-label="Smoke streamlines flowing over the test airfoil in the open-return tunnel"><source src="assets/video/flow.webm" type="video/webm"><source src="assets/video/flow.mp4" type="video/mp4"></video>
+          <figcaption>Smoke streamlines over the test airfoil, in the open-return tunnel.</figcaption>
+        </figure>
+        <figure class="shot pair">
+          <div class="pair-row">
+            <img style="flex: 1.605" src="assets/img/wind-tunnel-cad.jpg" width="1111" height="692" loading="lazy" alt="Labelled CAD model of the open-return wind tunnel: intake mesh, honeycomb, contraction, test box, diffuser and fan module.">
+            <img style="flex: 0.788" src="assets/img/wt-assembled.jpg" width="241" height="306" loading="lazy" alt="Assembled white 3D-printed wind tunnel on a wooden floor next to a banana">
+          </div>
+          <figcaption>Open-return tunnel: labelled CAD, and the built tunnel with a banana for scale.</figcaption>
         </figure>
         <p>Two low-cost desktop wind tunnels, designed as an alternative to the large commercial units used at Queen's. The open-return tunnel was built and tested; the closed-loop tunnel was taken through full CAD.</p>
         <ul class="points skills-list">
@@ -286,10 +336,6 @@
           <li><span class="k">Joint design.</span> Designed a ridge-and-collar joint: printed collars snap over triangular ridges on each section and pull them tight, sealing the joint with a single bolt.</li>
           <li><span class="k">Flow conditioning and test.</span> Designed the contraction, honeycomb and screens, diffuser and fan module, and confirmed flow quality with smoke visualisation over a test airfoil.</li>
         </ul>
-        <figure class="shot">
-          <video class="flow-clip" poster="assets/img/flow-poster.jpg" width="800" height="404" autoplay muted loop playsinline preload="metadata" aria-label="Smoke streamlines flowing over the test airfoil in the open-return tunnel"><source src="assets/video/flow.webm" type="video/webm"><source src="assets/video/flow.mp4" type="video/mp4"></video>
-          <figcaption>Smoke streamlines over the test airfoil, in the open-return tunnel.</figcaption>
-        </figure>
         <p>I then scaled the design up to a closed-loop tunnel twice the length, with a 5.29 contraction ratio, hexagonal honeycomb and turning vanes in each corner, for a theoretical 20 m/s. It was planned as a platform for comparison testing against an AGARD-B benchmark model.</p>
         <table class="specs">
           <thead><tr><th scope="col"></th><th scope="col">Open return</th><th scope="col">Closed loop</th></tr></thead>
@@ -305,9 +351,21 @@
         <div class="btn-row"><a class="btn-doc" href="#wind-tunnels">View images <span class="ext">9</span></a></div>
       </article>
     </section>
+
+    <section aria-labelledby="radio-h" id="radio">
+      <h2 id="radio-h"><span class="n">03</span>Amateur radio</h2>
+      <div class="item-head"><h3>ARISS image from the ISS</h3><span class="when">Nov 2026</span></div>
+      <p class="sub">ISED Canada Advanced Qualification</p>
+      <figure class="ariss">
+        <img src="assets/img/ariss-sstv.jpg" width="640" height="496" loading="lazy" alt="SSTV image transmitted from the International Space Station by ARISS"
+             onerror="this.hidden=true; this.nextElementSibling.hidden=false;">
+        <div class="ph-box" hidden>[ ARISS image goes here ]</div>
+        <figcaption>An ARISS SSTV image received and decoded with a friend, Nov 15, 2026, Kingston Ontario.</figcaption>
+      </figure>
+    </section>
   </main>
 
-  <footer class="wrap">Finlay Lemon · Kingston, Ontario · <a href="https://www.linkedin.com/in/finlay-lemon" target="_blank" rel="noopener">LinkedIn</a></footer>
+  <footer class="wrap">Finlay Lemon · Kingston, Ontario · <a href="https://www.linkedin.com/in/finlay-lemon" target="_blank" rel="noopener">LinkedIn</a><span class="updated">Last updated 16 November 2026</span></footer>
 </div>
 
 <!-- ================= WIND TUNNEL IMAGES ================= -->
@@ -345,6 +403,31 @@
   </main>
 
   <footer class="wrap"><a href="#wind-tunnels-project">&larr; Back to home</a></footer>
+</div>
+
+<!-- ================= PHOTOGRAPHY ================= -->
+<div id="photography-view" hidden>
+  <main class="wrap">
+    <div class="gallery-head">
+      <h1 id="photography-title" tabindex="-1">Photography</h1>
+      <p>Switzerland and France. Select a photo to open it full size.</p>
+    </div>
+    <section aria-label="Photos">
+      <div class="photos">
+        <figure><a href="assets/photos/photo-01-geneva-aerial.jpg" target="_blank" rel="noopener"><img src="assets/photos/photo-01-geneva-aerial.jpg" width="1280" height="1600" loading="lazy" alt="Aerial view of Geneva and Lake Geneva under cumulus clouds, with fields and suburbs in the foreground."></a><figcaption>Geneva and Lake Geneva from the air.</figcaption></figure>
+        <figure><a href="assets/photos/photo-02-jet-deau.jpg" target="_blank" rel="noopener"><img src="assets/photos/photo-02-jet-deau.jpg" width="1280" height="1600" loading="lazy" alt="The Jet d&#39;Eau fountain rising behind moored boats in Geneva harbour, a wooden motorboat in the foreground."></a><figcaption>The Jet d'Eau, Geneva.</figcaption></figure>
+        <figure><a href="assets/photos/photo-03-lucerne.jpg" target="_blank" rel="noopener"><img src="assets/photos/photo-03-lucerne.jpg" width="1280" height="1600" loading="lazy" alt="Rooftops of Lucerne and the river Reuss, with snow-capped Alps and clouds beyond."></a><figcaption>Lucerne and the Reuss.</figcaption></figure>
+        <figure><a href="assets/photos/photo-04-annecy.jpg" target="_blank" rel="noopener"><img src="assets/photos/photo-04-annecy.jpg" width="1280" height="1600" loading="lazy" alt="A green canal in Annecy old town between colourful buildings, with a stone bridge and flower boxes."></a><figcaption>Canal du Thiou, Annecy.</figcaption></figure>
+        <figure><a href="assets/photos/photo-05-glacier-lifts.jpg" target="_blank" rel="noopener"><img src="assets/photos/photo-05-glacier-lifts.jpg" width="1200" height="1600" loading="lazy" alt="A line of T-bar ski lift pylons climbing a broad glacier under a deep blue sky."></a><figcaption>Summer ski lifts on a glacier.</figcaption></figure>
+        <figure><a href="assets/photos/photo-06-alpine-summit.jpg" target="_blank" rel="noopener"><img src="assets/photos/photo-06-alpine-summit.jpg" width="1280" height="1600" loading="lazy" alt="A rocky, snow-covered alpine summit against a dark blue sky."></a><figcaption>A snow-capped summit in the Alps.</figcaption></figure>
+        <figure><a href="assets/photos/photo-07-matterhorn.jpg" target="_blank" rel="noopener"><img src="assets/photos/photo-07-matterhorn.jpg" width="1280" height="1600" loading="lazy" alt="The Matterhorn rising above forested valleys, with old wooden chalets on a grassy slope in the foreground."></a><figcaption>The Matterhorn above Zermatt.</figcaption></figure>
+        <figure><a href="assets/photos/photo-08-tram-sunset.jpg" target="_blank" rel="noopener"><img src="assets/photos/photo-08-tram-sunset.jpg" width="1280" height="1600" loading="lazy" alt="A city street at sunset with tram tracks and overhead lines leading towards the glowing sky."></a><figcaption>Tram lines at sunset.</figcaption></figure>
+        <figure><a href="assets/photos/photo-09-aiguille-du-dru.jpg" target="_blank" rel="noopener"><img src="assets/photos/photo-09-aiguille-du-dru.jpg" width="1200" height="1600" loading="lazy" alt="The granite spire of the Aiguille du Dru above a scree slope and green forest, with small clouds overhead."></a><figcaption>Aiguille du Dru, Chamonix.</figcaption></figure>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap"><a href="#">&larr; Back to home</a></footer>
 </div>
 
 <!-- ================= RÉSUMÉ ================= -->
@@ -433,18 +516,23 @@
 </div>
 
 <script>
-// Simple routing: "#resume" and "#wind-tunnels" show their pages; anything else shows home.
+// Simple routing: "#resume", "#wind-tunnels" and "#photography" show their pages; anything else shows home.
 (function () {
   var views = {
     '#resume': { el: document.getElementById('resume-view'), title: 'Résumé | Finlay Lemon', focus: 'resume-title' },
-    '#wind-tunnels': { el: document.getElementById('wind-tunnels-view'), title: 'Wind tunnel images | Finlay Lemon', focus: 'wind-tunnels-title' }
+    '#wind-tunnels': { el: document.getElementById('wind-tunnels-view'), title: 'Wind tunnel images | Finlay Lemon', focus: 'wind-tunnels-title' },
+    '#photography': { el: document.getElementById('photography-view'), title: 'Photography | Finlay Lemon', focus: 'photography-title' }
   };
+  var navLinks = document.querySelectorAll('.topbar [data-route]');
   var home = document.getElementById('home-view');
   function route(initial) {
     var v = views[location.hash];
     home.hidden = !!v;
     Object.keys(views).forEach(function (k) { views[k].el.hidden = views[k] !== v; });
     document.title = v ? v.title : 'Finlay Lemon | Mechatronics and Robotics Engineering';
+    var here = location.hash === '#radio' ? '#radio' : (v ? location.hash : '');
+    if (location.hash === '#wind-tunnels') here = '';
+    navLinks.forEach(function (a) { if (a.getAttribute('data-route') === here) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
     if (initial) return;
     if (v) { window.scrollTo(0, 0); document.getElementById(v.focus).focus(); }
     else {
@@ -454,6 +542,35 @@
   }
   window.addEventListener('hashchange', function () { route(false); });
   route(true);
+})();
+</script>
+
+<script>
+// Hand of cards: the pointer's horizontal position picks which card is in front; click, tap or Enter shows the next.
+(function () {
+  var hand = document.getElementById('amp-hand');
+  if (!hand) return;
+  var cards = hand.querySelectorAll('img');
+  var fig = hand.parentNode;
+  var label = fig.querySelector('.hand-cap .label'), count = fig.querySelector('.hand-cap .count');
+  var current = cards.length - 1;
+  function show(i) {
+    if (i === current) return;
+    cards[current].classList.remove('top');
+    current = i;
+    cards[i].classList.add('top');
+    var cap = cards[i].getAttribute('data-cap');
+    label.textContent = cap;
+    count.textContent = (i + 1) + '/' + cards.length;
+    hand.setAttribute('aria-label', 'Audio amplifier images: ' + cap.toLowerCase() + ', ' + (i + 1) + ' of ' + cards.length + '. Press to show the next image.');
+  }
+  hand.addEventListener('pointermove', function (e) {
+    if (e.pointerType !== 'mouse') return;
+    var r = hand.getBoundingClientRect();
+    var f = Math.min(Math.max((e.clientX - r.left) / r.width, 0), 0.999);
+    show(Math.floor(f * cards.length));
+  });
+  hand.addEventListener('click', function () { show((current + 1) % cards.length); });
 })();
 </script>
 
@@ -516,7 +633,7 @@
     var centre = box.getCenter(new THREE.Vector3());
     model.position.sub(centre);
     var radius = size.length() / 2;
-    var grid = new THREE.GridHelper(Math.max(size.x, size.z) * 2.2, 22, 0x333333, 0x1f1f1f);
+    var grid = new THREE.GridHelper(Math.max(size.x, size.z) * 2.2, 22, 0x444444, 0x262626);
     grid.position.y = -size.y / 2;
     scene.add(grid);
     var dist = radius / Math.sin(THREE.MathUtils.degToRad(camera.fov / 2)) * 0.85;
