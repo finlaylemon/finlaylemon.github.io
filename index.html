@@ -155,11 +155,22 @@
   .hand img.top { z-index: 3; border: 2px solid var(--head); }
   .hand-cap { display: flex; justify-content: space-between; gap: 8px; margin: 4px 2px 0; font-size: 0.78rem; }
   .hand-cap .count { color: var(--grey); }
+  .brief { display: none; }
+  .brief h2 { font-size: 1rem; margin-bottom: 12px; }
+  .brief-thumb { display: block; padding: 6px; background: var(--paper); border: 2px solid; border-color: var(--lo) var(--hi) var(--hi) var(--lo); }
+  .brief-thumb img { display: block; width: 100%; height: auto; border: 1px solid var(--dk); }
+  .brief-text { font-size: 0.88rem; color: var(--ink-2); margin: 10px 0 2px; }
+  .brief-inline { display: grid; grid-template-columns: 120px 1fr; gap: 16px; align-items: center; margin: 14px 0 18px; padding: 12px; border: 1px solid var(--hi); }
+  .brief-inline .brief-text { margin-top: 0; }
+  .btn-doc .ext { white-space: nowrap; }
+  .brief .btn-doc { display: flex; justify-content: space-between; width: 100%; padding: 4px 10px; font-size: 0.85rem; white-space: nowrap; }
   @media (max-width: 560px) { .recent .card { grid-template-columns: minmax(0, 150px) 1fr; gap: 14px; } }
   @media (min-width: 1280px) {
     #home-view > main.wrap { max-width: none; display: grid; grid-template-columns: 1fr minmax(0, 712px) 1fr; column-gap: 40px; }
     #home-view > main.wrap > section { grid-column: 2; }
     #home-view > main.wrap > .recent { grid-column: 3; grid-row: 1; justify-self: start; width: 100%; max-width: 250px; }
+    #home-view > main.wrap > .brief { display: block; grid-column: 1; grid-row: 1; justify-self: end; width: 100%; max-width: 250px; padding: 24px 0 28px; border-top: 1px solid var(--lo); box-shadow: inset 0 1px 0 var(--hi); }
+    .brief-inline { display: none; }
     .recent .card { grid-template-columns: 1fr; gap: 12px; }
   }
 
@@ -247,6 +258,13 @@
         <p>Lunar Logistics Rover, SolidWorks model. Drag to rotate.</p>
       </div>
       <p>An independent concept for a crewed south-pole rover, developed in response to the Canadian Space Agency's Lunar Utility Rover (LUR) program.</p>
+      <div class="brief-inline">
+        <a class="brief-thumb" href="assets/docs/LLR-Two-Pager.pdf" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="assets/img/llr-twopager-p1.png" width="600" height="777" loading="lazy" alt="" data-alt="First page of the Lunar Logistics Rover two-page summary: title, rover render on the lunar surface, CAD and system diagrams, executive summary and key figures table."></a>
+        <div>
+          <p class="brief-text">Short on time? The two-page summary covers the concept, key figures and findings.</p>
+          <a class="btn-doc" href="assets/docs/LLR-Two-Pager.pdf" target="_blank" rel="noopener">Read the summary <span class="ext">PDF · 2 pp</span></a>
+        </div>
+      </div>
       <ul class="points skills-list">
         <li><span class="k">Requirements and systems engineering.</span> Traced CSA and NASA requirements into a decision register and tracked open non-compliances.</li>
         <li><span class="k">Terramechanics.</span> Used the Bekker model with NASA soil data to find rolling resistance and slope traction.</li>
@@ -271,8 +289,15 @@
           <tr><th scope="row">Wheel flexure</th><td>Ti-6Al-4V, FoS 1.68 at 3,402 N worst case, 5.3 kg each</td></tr>
         </tbody>
       </table>
-      <div class="btn-row"><a class="btn-doc" href="assets/docs/LLR-Concept-Report.pdf" target="_blank" rel="noopener">Read the technical report <span class="ext">PDF · 34 pp</span></a></div>
+      <div class="btn-row"><a class="btn-doc" href="assets/docs/LLR-Concept-Report.pdf" target="_blank" rel="noopener">Full technical report <span class="ext">PDF · 34 pp</span></a></div>
     </section>
+
+    <aside class="brief" aria-labelledby="brief-h">
+      <h2 id="brief-h">Two-page summary</h2>
+      <a class="brief-thumb" href="assets/docs/LLR-Two-Pager.pdf" target="_blank" rel="noopener"><img src="assets/img/llr-twopager-p1.png" width="600" height="777" loading="lazy" alt="First page of the Lunar Logistics Rover two-page summary: title, rover render on the lunar surface, CAD and system diagrams, executive summary and key figures table."></a>
+      <p class="brief-text">Lunar Logistics Rover: the concept, key figures and findings on two pages.</p>
+      <a class="btn-doc" href="assets/docs/LLR-Two-Pager.pdf" target="_blank" rel="noopener">Read the summary <span class="ext">PDF · 2 pp</span></a>
+    </aside>
 
     <aside class="recent" aria-labelledby="recent-h">
       <h2 id="recent-h">Most recent work</h2>
