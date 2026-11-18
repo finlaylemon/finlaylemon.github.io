@@ -163,7 +163,31 @@
   .brief-inline { display: grid; grid-template-columns: 120px 1fr; gap: 16px; align-items: center; margin: 14px 0 18px; padding: 12px; border: 1px solid var(--hi); }
   .brief-inline .brief-text { margin-top: 0; }
   .btn-doc .ext { white-space: nowrap; }
-  .brief .btn-doc { display: flex; justify-content: space-between; width: 100%; padding: 4px 10px; font-size: 0.85rem; white-space: nowrap; }
+  .brief .btn-doc { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; width: 100%; }
+  /* Primary button: gold, bigger, with an occasional small jiggle */
+  .btn-primary, .btn-primary:visited {
+    background: var(--q-gold); color: #000; font-size: 1rem; padding: 10px 18px; margin-top: 12px;
+    border-color: #FFE38A #6B4F00 #6B4F00 #FFE38A; box-shadow: inset -1px -1px 0 #B88A00;
+  }
+  .btn-primary .ext { color: #4A3700; }
+  .btn-primary { flex-direction: column; align-items: flex-start; gap: 2px; }
+  @media (max-width: 560px) {
+    .brief-inline { grid-template-columns: 84px 1fr; gap: 12px; }
+    .brief-inline .btn-primary { width: 100%; padding: 10px 12px; }
+  }
+  .btn-primary:active { color: #000; border-color: #6B4F00 #FFE38A #FFE38A #6B4F00; box-shadow: inset 1px 1px 0 #B88A00; }
+  @keyframes jiggle {
+    0%, 86%, 100% { transform: rotate(0deg); }
+    88% { transform: rotate(-2.5deg); }
+    90% { transform: rotate(2.5deg); }
+    92% { transform: rotate(-2deg); }
+    94% { transform: rotate(1.5deg); }
+    96% { transform: rotate(0deg); }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .btn-primary { animation: jiggle 5s ease-in-out 1.5s infinite; }
+    .btn-primary:hover, .btn-primary:focus-visible { animation: none; }
+  }
   @media (max-width: 560px) { .recent .card { grid-template-columns: minmax(0, 150px) 1fr; gap: 14px; } }
   @media (min-width: 1280px) {
     #home-view > main.wrap { max-width: none; display: grid; grid-template-columns: 1fr minmax(0, 712px) 1fr; column-gap: 40px; }
@@ -262,7 +286,7 @@
         <a class="brief-thumb" href="assets/docs/LLR-Two-Pager.pdf" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="assets/img/llr-twopager-p1.png" width="600" height="777" loading="lazy" alt="" data-alt="First page of the Lunar Logistics Rover two-page summary: title, rover render on the lunar surface, CAD and system diagrams, executive summary and key figures table."></a>
         <div>
           <p class="brief-text">Short on time? The two-page summary covers the concept, key figures and findings.</p>
-          <a class="btn-doc" href="assets/docs/LLR-Two-Pager.pdf" target="_blank" rel="noopener">Read the summary <span class="ext">PDF · 2 pp</span></a>
+          <a class="btn-doc btn-primary" href="assets/docs/LLR-Two-Pager.pdf" target="_blank" rel="noopener">Read the two-page summary <span class="ext">PDF · 2 pp</span></a>
         </div>
       </div>
       <ul class="points skills-list">
@@ -296,7 +320,7 @@
       <h2 id="brief-h">Two-page summary</h2>
       <a class="brief-thumb" href="assets/docs/LLR-Two-Pager.pdf" target="_blank" rel="noopener"><img src="assets/img/llr-twopager-p1.png" width="600" height="777" loading="lazy" alt="First page of the Lunar Logistics Rover two-page summary: title, rover render on the lunar surface, CAD and system diagrams, executive summary and key figures table."></a>
       <p class="brief-text">Lunar Logistics Rover: the concept, key figures and findings on two pages.</p>
-      <a class="btn-doc" href="assets/docs/LLR-Two-Pager.pdf" target="_blank" rel="noopener">Read the summary <span class="ext">PDF · 2 pp</span></a>
+      <a class="btn-doc btn-primary" href="assets/docs/LLR-Two-Pager.pdf" target="_blank" rel="noopener">Read the two-page summary <span class="ext">PDF · 2 pp</span></a>
     </aside>
 
     <aside class="recent" aria-labelledby="recent-h">
