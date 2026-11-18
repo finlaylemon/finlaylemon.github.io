@@ -155,21 +155,22 @@
   .hand img.top { z-index: 3; border: 2px solid var(--head); }
   .hand-cap { display: flex; justify-content: space-between; gap: 8px; margin: 4px 2px 0; font-size: 0.78rem; }
   .hand-cap .count { color: var(--grey); }
-  .brief { display: none; }
-  .brief h2 { font-size: 1rem; margin-bottom: 12px; }
   .brief-thumb { display: block; padding: 6px; background: var(--paper); border: 2px solid; border-color: var(--lo) var(--hi) var(--hi) var(--lo); }
   .brief-thumb img { display: block; width: 100%; height: auto; border: 1px solid var(--dk); }
   .brief-text { font-size: 0.88rem; color: var(--ink-2); margin: 10px 0 2px; }
-  .brief-inline { display: grid; grid-template-columns: 120px 1fr; gap: 16px; align-items: center; margin: 14px 0 18px; padding: 12px; border: 1px solid var(--hi); }
-  .brief-inline .brief-text { margin-top: 0; }
+  .side-docs.has-thumb { display: grid; grid-template-columns: 120px 1fr; gap: 16px; align-items: center; margin: 14px 0 18px; padding: 12px; border: 1px solid var(--hi); }
+  .side-docs.has-thumb .brief-text { margin-top: 0; }
   .doc-stack { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
   .doc-stack .btn-doc { margin-top: 0; }
   .doc-stack .btn-primary { margin-top: 2px; }
+  .side-docs { margin: 14px 0 18px; padding: 12px; border: 1px solid var(--hi); }
+  .side-docs .see { font-family: var(--display); font-size: 0.8rem; color: var(--head); margin: 0; }
+  .side-docs.has-thumb > .see { grid-column: 1 / -1; }
+  .side-docs > .see { margin-bottom: 10px; }
   .doc-group + .doc-group { margin-top: 22px; padding-top: 16px; border-top: 1px solid var(--hi); }
   .doc-proj { font-family: var(--display); font-size: 0.8rem; color: var(--ink); margin: 0 0 10px; }
-  .brief-inline .doc-proj { margin: 8px 0 0; }
+  .side-docs.has-thumb .doc-proj { margin: 8px 0 0; }
   .btn-doc .ext { white-space: nowrap; }
-  .brief .btn-doc { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; width: 100%; }
   /* Primary button: gold, bigger, with an occasional small jiggle */
   .btn-primary, .btn-primary:visited {
     background: var(--q-gold); color: #000; font-size: 1rem; padding: 10px 18px; margin-top: 12px;
@@ -178,9 +179,9 @@
   .btn-primary .ext { color: #4A3700; }
   .btn-primary { flex-direction: column; align-items: flex-start; gap: 2px; }
   @media (max-width: 560px) {
-    .brief-inline { grid-template-columns: 84px 1fr; gap: 12px; }
-    .brief-inline .btn-doc { width: 100%; flex-direction: column; align-items: flex-start; gap: 2px; padding: 8px 12px; }
-    .brief-inline .btn-primary { padding: 10px 12px; }
+    .side-docs.has-thumb { grid-template-columns: 84px 1fr; gap: 12px; }
+    .side-docs.has-thumb .btn-doc { width: 100%; flex-direction: column; align-items: flex-start; gap: 2px; padding: 8px 12px; }
+    .side-docs.has-thumb .btn-primary { padding: 10px 12px; }
   }
   .btn-primary:active { color: #000; border-color: #6B4F00 #FFE38A #FFE38A #6B4F00; box-shadow: inset 1px 1px 0 #B88A00; }
   @keyframes jiggle {
@@ -200,9 +201,14 @@
     #home-view > main.wrap { max-width: none; display: grid; grid-template-columns: 1fr minmax(0, 712px) 1fr; column-gap: 40px; }
     #home-view > main.wrap > section { grid-column: 2; }
     #home-view > main.wrap > .recent { grid-column: 3; grid-row: 1; justify-self: start; width: 100%; max-width: 250px; }
-    #home-view > main.wrap > .brief { display: block; grid-column: 1; grid-row: 1; justify-self: end; width: 100%; max-width: 250px; padding: 24px 0 28px; border-top: 1px solid var(--lo); box-shadow: inset 0 1px 0 var(--hi); }
-    .brief-inline { display: none; }
     .recent .card { grid-template-columns: 1fr; gap: 12px; }
+    /* Documents sit in the left margin, level with their project */
+    #home-view main > section, #home-view .project { position: relative; }
+    .side-docs, .side-docs.has-thumb { display: block; position: absolute; right: 100%; top: 24px; width: min(250px, calc((100vw - 712px) / 2 - 56px)); margin: 0 40px 0 0; padding: 0; border: 0; }
+    .project > .side-docs { top: 0; }
+    .project + .project > .side-docs { top: 28px; }
+    .side-docs .brief-thumb { margin-bottom: 12px; }
+    .side-docs .btn-doc { width: 100%; flex-direction: column; align-items: flex-start; gap: 2px; }
   }
 
   /* Sub-pages */
@@ -289,16 +295,15 @@
         <p>Lunar Logistics Rover, SolidWorks model. Drag to rotate.</p>
       </div>
       <p>An independent concept for a crewed south-pole rover, developed in response to the Canadian Space Agency's Lunar Utility Vehicle (LUV) program.</p>
-      <div class="brief-inline" role="region" aria-label="Project documents">
-        <a class="brief-thumb" href="assets/docs/LLR-Two-Pager.pdf" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="assets/img/llr-twopager-p1.png" width="600" height="777" loading="lazy" alt="" data-alt="First page of the Lunar Logistics Rover two-page summary: title, rover render on the lunar surface, CAD and system diagrams, executive summary and key figures table."></a>
+      <aside class="side-docs has-thumb" aria-label="Lunar Logistics Rover documents">
+        <p class="see">See here</p>
+        <a class="brief-thumb" href="assets/docs/LLR-Two-Pager.pdf" target="_blank" rel="noopener"><img src="assets/img/llr-twopager-p1.png" width="600" height="777" loading="lazy" alt="First page of the Lunar Logistics Rover two-page summary: title, rover render on the lunar surface, CAD and system diagrams, executive summary and key figures table."></a>
         <div class="doc-stack">
           <p class="brief-text">Short on time? The two-page summary covers the concept, key figures and findings.</p>
           <a class="btn-doc btn-primary" href="assets/docs/LLR-Two-Pager.pdf" target="_blank" rel="noopener">Read the two-page summary <span class="ext">PDF · 2 pp</span></a>
           <a class="btn-doc" href="assets/docs/LLR-Concept-Report.pdf" target="_blank" rel="noopener">Full technical report <span class="ext">PDF · 34 pp</span></a>
-          <p class="doc-proj">Mars Sample Retrieval Rover</p>
-          <a class="btn-doc" href="assets/docs/MSR-Rover-Design-Report.pdf" target="_blank" rel="noopener">Design report <span class="ext">PDF</span></a>
         </div>
-      </div>
+      </aside>
       <ul class="points skills-list">
         <li><span class="k">Requirements and systems engineering.</span> Traced CSA and NASA requirements into a decision register and tracked open non-compliances.</li>
         <li><span class="k">Terramechanics.</span> Used the Bekker model with NASA soil data to find rolling resistance and slope traction.</li>
@@ -324,25 +329,6 @@
         </tbody>
       </table>
     </section>
-
-    <aside class="brief" aria-labelledby="brief-h">
-      <h2 id="brief-h">Project documents</h2>
-      <div class="doc-group">
-        <h3 class="doc-proj">Lunar Logistics Rover</h3>
-        <a class="brief-thumb" href="assets/docs/LLR-Two-Pager.pdf" target="_blank" rel="noopener"><img src="assets/img/llr-twopager-p1.png" width="600" height="777" loading="lazy" alt="First page of the Lunar Logistics Rover two-page summary: title, rover render on the lunar surface, CAD and system diagrams, executive summary and key figures table."></a>
-        <p class="brief-text">The concept, key figures and findings on two pages.</p>
-        <div class="doc-stack">
-          <a class="btn-doc btn-primary" href="assets/docs/LLR-Two-Pager.pdf" target="_blank" rel="noopener">Read the two-page summary <span class="ext">PDF · 2 pp</span></a>
-          <a class="btn-doc" href="assets/docs/LLR-Concept-Report.pdf" target="_blank" rel="noopener">Full technical report <span class="ext">PDF · 34 pp</span></a>
-        </div>
-      </div>
-      <div class="doc-group">
-        <h3 class="doc-proj">Mars Sample Retrieval Rover</h3>
-        <div class="doc-stack">
-          <a class="btn-doc" href="assets/docs/MSR-Rover-Design-Report.pdf" target="_blank" rel="noopener">Design report <span class="ext">PDF</span></a>
-        </div>
-      </div>
-    </aside>
 
     <aside class="recent" aria-labelledby="recent-h">
       <h2 id="recent-h">Most recent work</h2>
@@ -372,6 +358,12 @@
       <article class="project" id="mars-sample-retrieval-rover">
         <div class="item-head"><h3>Mars Sample Retrieval Rover</h3><span class="when">Jan – Apr 2026</span></div>
         <p class="sub">Course design project, team of three · SolidWorks, ROS 2, Nav2, Gazebo, RViz, Python</p>
+        <aside class="side-docs" aria-label="Mars Sample Retrieval Rover documents">
+          <div class="doc-stack">
+            <p class="see">See here</p>
+            <a class="btn-doc" href="assets/docs/MSR-Rover-Design-Report.pdf" target="_blank" rel="noopener">Design report <span class="ext">PDF</span></a>
+          </div>
+        </aside>
         <figure class="shot pair">
           <div class="pair-row">
             <img style="flex: 1.657" src="assets/img/msrr-cad.jpg" width="1170" height="706" loading="lazy"
@@ -392,6 +384,12 @@
       <article class="project" id="wind-tunnels-project">
         <div class="item-head"><h3>Desktop Wind Tunnels</h3><span class="when">Oct 2025 – 2026</span></div>
         <p class="sub">Independent project · SolidWorks, FDM 3D printing</p>
+        <aside class="side-docs" aria-label="Desktop wind tunnel images">
+          <div class="doc-stack">
+            <p class="see">See here</p>
+            <a class="btn-doc" href="#wind-tunnels">View images <span class="ext">9 images</span></a>
+          </div>
+        </aside>
         <figure class="shot">
           <video class="flow-clip" poster="assets/img/flow-poster.jpg" width="800" height="404" autoplay muted loop playsinline preload="metadata" aria-label="Smoke streamlines flowing over the test airfoil in the open-return tunnel"><source src="assets/video/flow.webm" type="video/webm"><source src="assets/video/flow.mp4" type="video/mp4"></video>
           <figcaption>Smoke streamlines over the test airfoil, in the open-return tunnel.</figcaption>
@@ -421,7 +419,6 @@
             <tr><th scope="row">Status</th><td>Built, flow visualised</td><td>Designed, not built</td></tr>
           </tbody>
         </table>
-        <div class="btn-row"><a class="btn-doc" href="#wind-tunnels">View images <span class="ext">9</span></a></div>
       </article>
     </section>
 
